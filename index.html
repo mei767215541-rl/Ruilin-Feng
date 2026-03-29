@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruilin Feng — Hydraulic Researcher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1a2e;
+  --paper: #f7f5f0;
+  --accent: #2d5f8a;
+  --accent-light: #e8f0f7;
+  --warm: #c4956a;
+  --warm-light: #f5ece3;
+  --text: #3a3a4a;
+  --text-muted: #7a7a8a;
+  --border: #e0ddd6;
+  --card-bg: #fffefa;
+  --shadow: 0 2px 20px rgba(26,26,46,0.06);
+  --shadow-hover: 0 8px 40px rgba(26,26,46,0.1);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--paper);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === NAVIGATION === */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(247,245,240,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
+.nav-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.8rem 2rem;
+}
+.nav-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700; font-size: 1.25rem;
+  color: var(--ink); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  text-decoration: none; color: var(--text-muted);
+  font-size: 0.82rem; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  transition: color 0.25s;
+  position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0;
+  width: 0; height: 1.5px; background: var(--accent);
+  transition: width 0.3s;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-links a:hover::after { width: 100%; }
+.hamburger { display: none; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span {
+  display: block; width: 22px; height: 2px;
+  background: var(--ink); margin: 5px 0;
+  transition: 0.3s;
+}
+
+/* === HERO === */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 8rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(45,95,138,0.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero::after {
+  content: '';
+  position: absolute; bottom: -100px; left: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(196,149,106,0.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero-inner {
+  max-width: 1100px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+  align-items: center;
+  position: relative; z-index: 1;
+}
+.hero-text { animation: fadeUp 0.8s ease-out; }
+.hero-label {
+  font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 1.2rem;
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.hero-label::before {
+  content: ''; width: 28px; height: 1.5px;
+  background: var(--accent);
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  font-weight: 700; line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.03em;
+}
+.hero-desc {
+  font-size: 1.05rem; color: var(--text-muted);
+  line-height: 1.8; margin-bottom: 2rem;
+  max-width: 480px;
+}
+.hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.7rem 1.6rem;
+  border-radius: 6px; font-size: 0.85rem; font-weight: 500;
+  text-decoration: none; transition: all 0.3s;
+  letter-spacing: 0.02em;
+}
+.btn-primary {
+  background: var(--accent); color: #fff;
+  border: 1.5px solid var(--accent);
+}
+.btn-primary:hover { background: #245075; border-color: #245075; transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.btn-outline {
+  background: transparent; color: var(--accent);
+  border: 1.5px solid var(--accent);
+}
+.btn-outline:hover { background: var(--accent-light); transform: translateY(-1px); }
+
+.hero-visual {
+  display: flex; justify-content: center; align-items: center;
+  animation: fadeUp 0.8s ease-out 0.2s both;
+}
+.hero-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow);
+  width: 100%; max-width: 380px;
+  position: relative;
+}
+.hero-card::before {
+  content: '';
+  position: absolute; top: -1px; left: 40px; right: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--warm));
+  border-radius: 0 0 4px 4px;
+}
+.info-grid { display: grid; gap: 1.4rem; }
+.info-item { display: flex; align-items: flex-start; gap: 0.8rem; }
+.info-icon {
+  width: 36px; height: 36px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-size: 0.9rem;
+}
+.info-icon.blue { background: var(--accent-light); color: var(--accent); }
+.info-icon.warm { background: var(--warm-light); color: var(--warm); }
+.info-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 2px; }
+.info-value { font-size: 0.88rem; font-weight: 500; color: var(--ink); }
+.info-value a { color: var(--accent); text-decoration: none; }
+.info-value a:hover { text-decoration: underline; }
+
+/* === SECTIONS === */
+section { padding: 5rem 2rem; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-header { margin-bottom: 3rem; animation: fadeUp 0.6s ease-out; }
+.section-label {
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--warm); margin-bottom: 0.6rem;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 700; color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.section-divider {
+  width: 40px; height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--warm));
+  margin-top: 1rem;
+}
+
+/* === PHOTO GALLERY === */
+.gallery-section { background: var(--card-bg); }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.gallery-item {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  transition: transform 0.3s, box-shadow 0.3s;
+  aspect-ratio: 4/3;
+}
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+.gallery-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.gallery-caption {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* === ABOUT === */
+.about-grid {
+  display: grid; grid-template-columns: 2fr 1fr; gap: 3rem;
+  align-items: start;
+}
+.about-text p { margin-bottom: 1rem; color: var(--text); font-size: 0.95rem; }
+.about-text p:last-child { margin-bottom: 0; }
+.about-highlights { display: grid; gap: 1.2rem; }
+.highlight-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.3rem 1.5rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.highlight-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+.highlight-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem; font-weight: 700; color: var(--accent);
+  line-height: 1;
+}
+.highlight-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.3rem; }
+
+/* === EDUCATION === */
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before {
+  content: ''; position: absolute; left: 6px; top: 8px; bottom: 8px;
+  width: 1.5px; background: var(--border);
+}
+.timeline-item {
+  position: relative; margin-bottom: 2.2rem;
+  padding-left: 1.5rem;
+  animation: fadeUp 0.5s ease-out;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute; left: -2rem; top: 8px;
+  width: 13px; height: 13px;
+  border-radius: 50%;
+  border: 2.5px solid var(--accent);
+  background: var(--paper);
+  z-index: 1;
+}
+.timeline-item:first-child::before { background: var(--accent); }
+.timeline-date {
+  font-size: 0.75rem; font-weight: 600; color: var(--accent);
+  letter-spacing: 0.05em; margin-bottom: 0.3rem;
+}
+.timeline-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-weight: 700; color: var(--ink);
+}
+.timeline-org { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.3rem; }
+.timeline-detail { font-size: 0.84rem; color: var(--text); }
+.timeline-detail a { color: var(--accent); text-decoration: none; }
+.timeline-detail a:hover { text-decoration: underline; }
+
+/* === PUBLICATIONS === */
+.pub-category { margin-bottom: 2.5rem; }
+.pub-category-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem; font-weight: 700; color: var(--ink);
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.pub-list { list-style: none; }
+.pub-item {
+  padding: 1rem 1.4rem;
+  margin-bottom: 0.6rem;
+  border-radius: 8px;
+  border-left: 3px solid transparent;
+  transition: all 0.3s;
+  font-size: 0.88rem; line-height: 1.7;
+}
+.pub-item:hover {
+  background: var(--card-bg);
+  border-left-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+.pub-item .authors { color: var(--text); }
+.pub-item .pub-title { font-weight: 600; color: var(--ink); }
+.pub-item .pub-title a { color: var(--ink); text-decoration: none; }
+.pub-item .pub-title a:hover { color: var(--accent); text-decoration: underline; }
+.pub-item .journal { font-style: italic; color: var(--accent); }
+.pub-item .badge {
+  display: inline-block;
+  font-size: 0.65rem; font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  letter-spacing: 0.03em;
+  margin-left: 0.3rem;
+  vertical-align: middle;
+}
+.badge-q1 { background: #e8f5e9; color: #2e7d32; }
+.badge-q2 { background: #e3f2fd; color: #1565c0; }
+.badge-q3 { background: #fff3e0; color: #e65100; }
+.badge-sub { background: #f3e5f5; color: #7b1fa2; }
+.badge-acc { background: #e0f2f1; color: #00695c; }
+
+/* === EXPERIENCE === */
+.exp-grid { display: grid; gap: 1.5rem; }
+.exp-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.8rem 2rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: grid; grid-template-columns: auto 1fr; gap: 1.5rem;
+  align-items: start;
+}
+.exp-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+.exp-marker {
+  width: 44px; height: 44px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; flex-shrink: 0;
+}
+.exp-marker.eng { background: var(--accent-light); color: var(--accent); }
+.exp-marker.res { background: var(--warm-light); color: var(--warm); }
+.exp-role { font-weight: 600; color: var(--ink); font-size: 0.95rem; }
+.exp-org { font-size: 0.84rem; color: var(--accent); margin-top: 0.15rem; }
+.exp-date { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.15rem; }
+.exp-desc { font-size: 0.86rem; color: var(--text); margin-top: 0.6rem; line-height: 1.7; }
+
+/* === SKILLS === */
+.skills-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+.skill-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem 1.6rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s;
+}
+.skill-card:hover { transform: translateY(-2px); }
+.skill-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem; font-weight: 700; color: var(--ink);
+  margin-bottom: 0.8rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.skill-tag {
+  font-size: 0.75rem; padding: 0.25rem 0.65rem;
+  background: var(--accent-light);
+  color: var(--accent); border-radius: 4px;
+  font-weight: 500;
+}
+.skill-tag.warm { background: var(--warm-light); color: #a07040; }
+
+/* === AWARDS === */
+.awards-list { display: grid; gap: 0.8rem; }
+.award-item {
+  display: grid; grid-template-columns: auto 1fr auto;
+  gap: 1rem; align-items: center;
+  padding: 0.9rem 1.3rem;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+.award-item:hover { background: var(--card-bg); }
+.award-icon {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--warm), #d4a574);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 0.8rem;
+}
+.award-text { font-size: 0.88rem; color: var(--text); }
+.award-text strong { color: var(--ink); }
+.award-year { font-size: 0.78rem; color: var(--text-muted); font-weight: 500; }
+
+/* === REFEREES === */
+.referees-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.referee-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.8rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.referee-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+.referee-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; font-weight: 700; color: var(--ink);
+  margin-bottom: 0.3rem;
+}
+.referee-name a { color: var(--ink); text-decoration: none; }
+.referee-name a:hover { color: var(--accent); }
+.referee-title { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.2rem; }
+.referee-inst { font-size: 0.85rem; color: var(--accent); font-style: italic; margin-bottom: 0.5rem; }
+.referee-email { font-size: 0.82rem; color: var(--text); }
+.referee-email a { color: var(--accent); text-decoration: none; }
+.referee-email a:hover { text-decoration: underline; }
+
+/* === CONTACT === */
+.contact-section { background: var(--ink); color: #fff; }
+.contact-section .section-label { color: var(--warm); }
+.contact-section .section-title { color: #fff; }
+.contact-section .section-divider { margin-bottom: 2rem; }
+.contact-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+.contact-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px; padding: 1.5rem;
+  transition: background 0.3s;
+}
+.contact-card:hover { background: rgba(255,255,255,0.08); }
+.contact-card-icon { font-size: 1.3rem; margin-bottom: 0.6rem; }
+.contact-card-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); margin-bottom: 0.3rem; }
+.contact-card-value { font-size: 0.9rem; }
+.contact-card-value a { color: #fff; text-decoration: none; }
+.contact-card-value a:hover { color: var(--warm); }
+
+/* === FOOTER === */
+footer {
+  text-align: center; padding: 2rem;
+  background: var(--ink);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  font-size: 0.78rem; color: rgba(255,255,255,0.35);
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex; flex-direction: column;
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: rgba(247,245,240,0.97);
+    backdrop-filter: blur(20px);
+    padding: 1.5rem 2rem; gap: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .hamburger { display: block; }
+  .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .hero-visual { order: -1; }
+  .hero-card { max-width: 100%; }
+  .about-grid { grid-template-columns: 1fr; }
+  .exp-card { grid-template-columns: 1fr; }
+  .exp-marker { display: none; }
+  .award-item { grid-template-columns: auto 1fr; }
+  .award-year { grid-column: 2; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-item { aspect-ratio: 16/10; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">R. Feng</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#referees">Referees</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-label">Postdoctoral Researcher</div>
+      <h1>Ruilin Feng<br><span style="font-weight:400;font-size:0.55em;color:var(--text-muted);">冯瑞琳</span></h1>
+      <p class="hero-desc">
+        Postdoctoral researcher at the University of Lisbon specializing in hydraulic transient analysis, 
+        air–water two-phase flow dynamics, and computational fluid mechanics for water conveyance systems.
+      </p>
+      <div class="hero-links">
+        <a href="mailto:Mei767215541@gmail.com" class="btn btn-primary">✉ Get in Touch</a>
+        <a href="https://scholar.google.com/citations?user=Y5yzyg8AAAAJ&hl=zh-CN" class="btn btn-outline" target="_blank">Google Scholar</a>
+        <a href="https://www.researchgate.net/profile/Ruilin-Feng-2/research" class="btn btn-outline" target="_blank">ResearchGate</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="info-icon blue">🎓</div>
+            <div>
+              <div class="info-label">Position</div>
+              <div class="info-value">Postdoc, Instituto Superior Técnico</div>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon warm">📍</div>
+            <div>
+              <div class="info-label">Location</div>
+              <div class="info-value">Lisbon, Portugal</div>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon blue">🔬</div>
+            <div>
+              <div class="info-label">Research Focus</div>
+              <div class="info-value">Hydraulic Transients &amp; Air–Water Flow</div>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon warm">📧</div>
+            <div>
+              <div class="info-label">Email</div>
+              <div class="info-value"><a href="mailto:Mei767215541@gmail.com">Mei767215541@gmail.com</a></div>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon blue">🏠</div>
+            <div>
+              <div class="info-label">Address</div>
+              <div class="info-value">Rua Pascoal de Melo 8, Lisboa</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO GALLERY -->
+<section class="gallery-section" id="gallery">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <div class="section-label">Moments</div>
+      <h2 class="section-title">Gallery</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="gallery-grid fade-in">
+      <div class="gallery-item">
+        <img src="2.jpg" alt="Ruilin Feng at Hohai University Archives">
+      </div>
+      <div class="gallery-item">
+        <img src="1.jpg" alt="PhD Graduation Celebration">
+      </div>
+      <div class="gallery-item">
+        <img src="3.jpg" alt="At the College of Water Conservancy and Hydropower Engineering">
+      </div>
+    </div>
+    <p class="gallery-caption fade-in">Ph.D. Graduation — Hohai University, December 2025</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <div class="section-label">Introduction</div>
+      <h2 class="section-title">About Me</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <p>
+          I am a Postdoctoral Researcher in Civil Engineering at the Instituto Superior Técnico, University of Lisbon, 
+          working under the guidance of <a href="https://scholar.google.com/citations?user=9jTHk6oAAAAJ&hl=en" target="_blank">Prof. Helena M. Ramos</a>. I received my Ph.D. in Water Conservancy and 
+          Hydropower Engineering from Hohai University in December 2025, where I was advised by <a href="https://scholar.google.com/citations?user=wGtxm8YAAAAJ&hl=en" target="_blank">Prof. Ling Zhou</a>.
+        </p>
+        <p>
+          My research focuses on the <strong>air–water coupling mechanism</strong> and <strong>transient flow dynamics</strong> 
+          in long-distance water conveyance pipelines. I develop both experimental methodologies and advanced numerical models 
+          — including 1D MOC/FVM solvers and 3D CFD simulations — to characterize multiphase flow behavior 
+          during rapid filling, pump startup/shutdown, and other operational transients.
+        </p>
+        <p>
+          I have contributed to multiple major engineering projects in China and Europe, including the 
+          HuanBeibu Gulf Water Resources Allocation, the Baihetan Hydropower Station, and the Dalian Bay Undersea 
+          Tunnel. My work bridges fundamental research with real-world applications in hydraulic safety and pipeline design.
+        </p>
+      </div>
+      <div class="about-highlights fade-in">
+        <div class="highlight-card">
+          <div class="highlight-num">10+</div>
+          <div class="highlight-label">Journal Articles</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-num">5</div>
+          <div class="highlight-label">Conference Papers</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-num">10</div>
+          <div class="highlight-label">Patents Filed (7 Granted)</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-num">3</div>
+          <div class="highlight-label">Languages Spoken</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" style="background: var(--card-bg);">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <div class="section-label">Academic Background</div>
+      <h2 class="section-title">Education</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="timeline fade-in">
+      <div class="timeline-item">
+        <div class="timeline-date">February 2026 – Present</div>
+        <div class="timeline-title">Postdoctoral Researcher in Civil Engineering</div>
+        <div class="timeline-org">Instituto Superior Técnico, University of Lisbon, Portugal</div>
+        <div class="timeline-detail">Advisor: <a href="https://scholar.google.com/citations?user=9jTHk6oAAAAJ&hl=en" target="_blank">Prof. Helena M. Ramos</a></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">September 2020 – December 2025</div>
+        <div class="timeline-title">Ph.D. in Water Conservancy and Hydropower Engineering</div>
+        <div class="timeline-org">Hohai University, Nanjing, China</div>
+        <div class="timeline-detail">Advisor: <a href="https://scholar.google.com/citations?user=wGtxm8YAAAAJ&hl=en" target="_blank">Prof. Ling Zhou</a><br>
+          <em>Dissertation: <a href="https://drive.google.com/uc?export=view&id=1zrq8cu6_lQA_mJ0I9-av09IiFYx0JaZW" target="_blank">Air–Water Coupling Mechanism and Air Admission–Discharge Transients through Air Valves in Long-Distance Water Conveyance Pipelines</a></em>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">October 2024 – October 2025</div>
+        <div class="timeline-title">Joint Training Ph.D. Student</div>
+        <div class="timeline-org">University of Lisbon, Lisbon, Portugal</div>
+        <div class="timeline-detail">Advisor: <a href="https://scholar.google.com/citations?user=9jTHk6oAAAAJ&hl=en" target="_blank">Prof. Helena M. Ramos</a></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">May 2024 – June 2024</div>
+        <div class="timeline-title">Visiting Research Collaborator</div>
+        <div class="timeline-org">Deltares Hydraulic Laboratory, Netherlands</div>
+        <div class="timeline-detail">Advisors: <a href="https://eps.leeds.ac.uk/civil-engineering/staff/11419/dr-mohsen-besharat" target="_blank">Dr. Mohsen Besharat</a>, <a href="https://www.deltares.nl/en/expertise/our-people/mike-van-meerkerk" target="_blank">Dr. Mike van Meerkerk</a><br>
+        <a href="https://data.europa.eu/data/datasets/oai-zenodo-org-14679579?locale=ro" target="_blank">Co-UDlabs Transnational Access Project, European Commission</a></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">September 2016 – June 2020</div>
+        <div class="timeline-title">B.Eng. in Agricultural Water Conservancy Engineering</div>
+        <div class="timeline-org">Taiyuan University of Technology, China</div>
+        <div class="timeline-detail">Class Ranking: 3rd out of 92 students</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <div class="section-label">Research Output</div>
+      <h2 class="section-title">Publications</h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="pub-category fade-in">
+      <h3 class="pub-category-title">Journal Articles</h3>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <span class="authors"><strong>Feng, R.-L.</strong>, Zhou, L., Hu, Y., Li Y.</span> (2026). 
+          <span class="pub-title">"Experimental Study of Upstream Air Venting Dynamics in Mixed Air–Water Flow Transients."</span> 
+          <span class="journal">Physics of Fluids</span> <span class="badge badge-sub">Submitted</span>
+        </li>
+        <li class="pub-item">
+          <span class="authors"><strong>Feng, R.-L.</strong>, Zhou, L., Hu, Y., Li Y.</span> (2026). 
+          <span class="pub-title">"Experimental and Numerical Investigations of Free Surface and Mixed Flow Transitions in Urban Drainage Pipes under Complex Operating Conditions."</span> 
+          <span class="journal">Eng. Appl. Comput. Fluid Mech.</span> <span class="badge badge-sub">Under Review</span>
+        </li>
+        <li class="pub-item">
+          <span class="authors"><strong>Feng, R.-L.</strong>, Besharat, M., van Meerkerk, M., Moreno Rodenas, A., Tasca, E., Zhou, L., &amp; Ramos, H. M.</span> (2025). 
+          <span class="pub-title"><a href="https://pubs.aip.org/aip/pof/article-abstract/37/12/123310/3374073/Impact-of-air-valves-on-air-water-dynamics-during?redirectedFrom=fulltext" target="_blank">"Impact of Air Valves on Air–water Dynamics During Pump Startup and Shutdown."</a></span> 
+          <span class="journal">Physics of Fluids</span>, Vol. 37(12). <span class="badge badge-q1">JCR Q1 · IF: 4.3</span>
+        </li>
+        <li class="pub-item">
+          <span class="authors"><strong>Feng, R.-L.</strong>, Zhou, L., Besharat, M., Xue, Z., Li, Y., Chen, Q., Hu, Y., &amp; Lu, Y.</span> (2024). 
+          <span class="pub-title"><a href="https://www.tandfonline.com/doi/full/10.1080/19942060.2024.2428423" target="_blank">"Discreted Air Model for Large Scale Rapid Filling Process Contained Entrapped Air."</a></span> 
+          <span class="journal">Eng. Appl. Comput. Fluid Mech.</span>, Vol. 18(1). <span class="badge badge-q1">JCR Q1 · IF: 5.4</span>
+        </li>
+        <li class="pub-item">
+          <span class="authors">Zhou, L., <strong>Feng, R.-L.</strong>, Pan, T., Li, Y., Liu, D., &amp; Che, T.</span> (2023). 
+          <span class="pub-title"><a href="https://ascelibrary.org/doi/abs/10.1061/JHEND8.HYENG-13468" target="_blank">"Coupled Second-Order GTS-MOC Scheme for Transient Pipe Flows with an Entrapped Air Pocket."</a></span> 
+          <span class="journal">J. Hydraul. Eng.</span>, Vol. 149(9). <span class="badge badge-q2">JCR Q2 · IF: 2.8</span>
+        </li>
+        <li class="pub-item">
+          <span class="authors">Zhou, L., Chen, Q., Li, Y., <strong>Feng, R.-L.</strong>, &amp; Xue, Z.</span> (2024). 
+          <span class="pub-title"><a href="https://www.tandfonline.com/doi/full/10.1080/19942060.2024.2370931" target="_blank">"Godunov-type scheme for air-water transient pipe flow considering variable heat transfer and laboratorial validation."</a></span> 
+          <span class="journal">Eng. Appl. Comput. Fluid Mech.</span>, 18(1). <span class="badge badge-q1">JCR Q1 · IF: 5.4</span>
+        </li>
+        <li class="pub-item">
+          <span class="authors">Li, Y., Zhou, L., Li, Z., Che, T.-C., Lee, P. J., <strong>Feng, R.-L.</strong>, &amp; Chen, Q.</span> (2024). 
+          <span class="pub-title"><a href="https://ascelibrary.org/doi/10.1061/JHEND8.HYENG-14029" target="_blank">"Modeling Interactions between Hydraulic Transients and Inline Air Pockets in Water Pipelines."</a></span> 
+          <span class="journal">J. Hydraul. Eng.</span>, 150(6). <span class="badge badge-q2">JCR Q2 · IF: 2.8</span>
+        </li>
+        <li class="pub-item">
+          <span class="authors">Hu, Y., Zhou, L., Li, Y., Lu, Y., <strong>Feng, R.-L.</strong>, Chen, Q., &amp; Xue, Z.</span> (2024). 
+          <span class="pub-title"><a href="https://www.tandfonline.com/doi/full/10.1080/19942060.2024.2387047" target="_blank">"Numerical simulation of various flow regimes in water delivery systems."</a></span> 
+          <span class="journal">Eng. Appl. Comput. Fluid Mech.</span>, 18(1). <span class="badge badge-q1">JCR Q1 · IF: 5.4</span>
+        </li>
+        <li class="pub-item">
+          <span class="authors">Liu, Y., Lu, J., Chen, J., Xia, Y., Liu, D., Hu, Y., <strong>Feng, R.-L.</strong>, Liu, D., &amp; Zhou, L.</span> (2023). 
+          <span class="pub-title"><a href="https://www.mdpi.com/2073-4441/15/15/2742" target="_blank">"Finite Volume Method for Transient Pipe Flow with an Air Cushion Surge Chamber."</a></span> 
+          <span class="journal">Water</span>, 15(15). <span class="badge badge-q3">JCR Q3 · IF: 3.0</span>
+        </li>
+        <li class="pub-item">
+          <span class="authors">Coelho, J. S. T., Perez-Sanchez, M., Coronado-Hernandez, O. E., Besharat, M., <strong>Feng, R.-L.</strong>, Tasca, E., Zhou, L., &amp; Ramos, H. M.</span> (2024). 
+          <span class="pub-title"><a href="https://www.sciencedirect.com/science/article/pii/S2590123024013720" target="_blank">"Hydropneumatic storage methodology towards a new era of hybrid energy system's efficiency and flexibility."</a></span> 
+          <span class="journal">Results in Engineering</span>, 24.
+        </li>
+        <li class="pub-item">
+          <span class="authors">Tao, Z., Zhou, L., Li, Y., Huang, Y., Lu, Y., Hu, Y., &amp; <strong>Feng, R.-L.</strong></span> (2025). 
+          <span class="pub-title"><a href="https://www.tandfonline.com/doi/full/10.1080/19942060.2025.2451171" target="_blank">"Transient response and analytical solution of burst phenomenon in long distance water pipeline."</a></span> 
+          <span class="journal">Eng. Appl. Comput. Fluid Mech.</span>, 19(1). <span class="badge badge-q1">JCR Q1 · IF: 5.4</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="pub-category fade-in">
+      <h3 class="pub-category-title">Conference Proceedings</h3>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <span class="authors"><strong>Feng, R.-L.</strong>, Besharat, M., Tasca, E., van Meerkerk, M., van Batenburg, T., Zhou, L., &amp; Ramos, H. M.</span> (2026). 
+          <span class="pub-title"><a href="https://www.deltares.nl/en/events/pressure-surge-conference-2026" target="_blank">"Modelling transient air-water flow in undulating pipelines: a 1D numerical study of air valve performance."</a></span> 
+          <em>15th Intl. Conf. on Pressure Surges.</em> <span class="badge badge-acc">Accepted</span>
+        </li>
+        <li class="pub-item">
+          <span class="authors"><strong>Feng, R.-L.</strong>, Tasca, E., Besharat, M., van Meerkerk, M., van Batenburg, T., Zhou, L., &amp; Ramos, H. M.</span> (2026). 
+          <span class="pub-title"><a href="https://www.deltares.nl/en/events/pressure-surge-conference-2026" target="_blank">"Air entrainment and removal characteristics in pressurized pipelines with local high points."</a></span> 
+          <em>15th Intl. Conf. on Pressure Surges.</em> <span class="badge badge-acc">Accepted</span>
+        </li>
+        <li class="pub-item">
+          <span class="authors"><strong>Feng, R.-L.</strong>, Tasca, E., van Meerkerk, M., Besharat, M., Zhou, L., Ramos, H. M., &amp; Karadžić, U.</span> (2025). 
+          <span class="pub-title"><a href="https://www.iahr.org/library/infor?pid=34535" target="_blank">"Experimental Study on Dynamic Characteristics of Entrapped Air in Urban Drainage System."</a></span> 
+          <em>41st IAHR World Congress.</em>
+        </li>
+        <li class="pub-item">
+          <span class="authors"><strong>Feng, R.-L.</strong>, Zhou, L., Besharat, M., Lu, Y., Chen, Q., Hu, Y., &amp; Li, Y.</span> (2024). 
+          <span class="pub-title"><a href="https://www.iahr.org/library/infor?pid=30446" target="_blank">"Air Characteristics During Rapid Filling of Long Distance Water Transmission Pipes."</a></span> 
+          <em>8th IAHR Europe Congress.</em>
+        </li>
+        <li class="pub-item">
+          <span class="authors">Lu, Y., Zhou, L., <strong>Feng, R.-L.</strong>, Xue, Z., Hu, Y., &amp; Chen, Q.</span> (2024). 
+          <span class="pub-title"><a href="https://www.iahr.org/library/infor?pid=30446" target="_blank">"Improved Mixed Flow Model for Large-Scale Multi-Shaft Pipeline."</a></span> 
+          <em>8th IAHR Europe Congress.</em>
+        </li>
+      </ul>
+    </div>
+
+    <div class="pub-category fade-in">
+      <h3 class="pub-category-title">Research Datasets</h3>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <span class="authors"><strong>Feng, R.-L.</strong>, Tasca, E., van Batenburg, T., van Meerkerk, M., &amp; Besharat, M.</span> (2025). 
+          <span class="pub-title"><a href="https://zenodo.org/records/14679579" target="_blank">"Dynamic Behaviour of Air Pockets in Urban Drainage Systems (DAirUDS)."</a></span> 
+          <em>Zenodo</em>, Version 1.0 [Data set].
+        </li>
+      </ul>
+    </div>
+
+    <div class="pub-category fade-in">
+      <h3 class="pub-category-title">Intellectual Property</h3>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <strong>10 invention patents</strong> filed (7 granted, 3 under examination) &nbsp;·&nbsp; <strong>2 registered software copyrights</strong> for hydraulic simulation tools
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" style="background: var(--card-bg);">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <div class="section-label">Professional Background</div>
+      <h2 class="section-title">Selected Projects</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="exp-grid">
+      <div class="exp-card fade-in">
+        <div class="exp-marker eng">🌊</div>
+        <div>
+          <div class="exp-role">Principal Investigator — Baihetan Hydropower Station Analysis</div>
+          <div class="exp-org">Three Gorges Jinsha River Yunchuan Hydropower Development Co., Ltd.</div>
+          <div class="exp-date">October 2023 – February 2026</div>
+          <div class="exp-desc">Developed an auxiliary decision-support system integrating 3D virtual reality and computer simulation for reservoir flood discharge and safe operation of generating units.</div>
+        </div>
+      </div>
+      <div class="exp-card fade-in">
+        <div class="exp-marker res">🔧</div>
+        <div>
+          <div class="exp-role">Research Subgroup Leader — HuanBeibu Gulf Water Resources Allocation</div>
+          <div class="exp-org">China Water Pearl River Planning Survey and Design Co., Ltd.</div>
+          <div class="exp-date">January 2021 – August 2023</div>
+          <div class="exp-desc">Directed flow calculations for a major water transfer project; investigated transient control techniques for trapped air in long tunnels and developed numerical models for combined pressurized and open channel flow.</div>
+        </div>
+      </div>
+      <div class="exp-card fade-in">
+        <div class="exp-marker eng">💧</div>
+        <div>
+          <div class="exp-role">Lead Developer — HydraAI Software Development</div>
+          <div class="exp-org">Independent Research Team</div>
+          <div class="exp-date">2021 – 2024</div>
+          <div class="exp-desc">Led secondary development of TransAM software with modular configuration, integrating finite volume computation, dynamic friction modeling, free-surface flow, and rapid visualization functions.</div>
+        </div>
+      </div>
+      <div class="exp-card fade-in">
+        <div class="exp-marker res">🏗️</div>
+        <div>
+          <div class="exp-role">Project Leader — Dalian Bay Undersea Tunnel Fire Protection System</div>
+          <div class="exp-org">China Communications First Navigation Bureau</div>
+          <div class="exp-date">June 2023</div>
+          <div class="exp-desc">Performed hydraulic analysis of air–water transient flow during pump start-up and assessed pipeline pressure limit compliance.</div>
+        </div>
+      </div>
+      <div class="exp-card fade-in">
+        <div class="exp-marker eng">🔬</div>
+        <div>
+          <div class="exp-role">Core Member — Digital Twin-Based Monitoring for Deep-Buried Long Tunnels</div>
+          <div class="exp-org">China Water Zhujiang Planning, Survey, and Design Co., Ltd.</div>
+          <div class="exp-date">August 2023 – December 2024</div>
+          <div class="exp-desc">Applied data cleaning, mechanism-based modeling, and data-driven intelligent analysis to reconstruct flow fields in deep-buried tunnels.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <div class="section-label">Technical Expertise</div>
+      <h2 class="section-title">Skills &amp; Competencies</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="skills-grid fade-in">
+      <div class="skill-card">
+        <div class="skill-card-title">💻 Programming</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">MATLAB</span>
+          <span class="skill-tag">Fortran</span>
+          <span class="skill-tag warm">Algorithm Dev</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">🛠 Engineering Software</div>
+        <div class="skill-tags">
+          <span class="skill-tag">ANSYS Fluent</span>
+          <span class="skill-tag">OpenFOAM</span>
+          <span class="skill-tag">AutoCAD</span>
+          <span class="skill-tag">Tecplot</span>
+          <span class="skill-tag warm">Rhino</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">🌊 Hydraulic Tools</div>
+        <div class="skill-tags">
+          <span class="skill-tag">WANDA</span>
+          <span class="skill-tag">HAMMER</span>
+          <span class="skill-tag">SWMM</span>
+          <span class="skill-tag">Mike 11</span>
+          <span class="skill-tag warm">HydraAI</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">📊 Methods</div>
+        <div class="skill-tags">
+          <span class="skill-tag">CFD</span>
+          <span class="skill-tag">Numerical Modeling</span>
+          <span class="skill-tag">Machine Learning</span>
+          <span class="skill-tag warm">Data Analysis</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">🌍 Languages</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Chinese (Native)</span>
+          <span class="skill-tag">English (Professional)</span>
+          <span class="skill-tag warm">Portuguese (Conversational)</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">📝 Peer Review</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Physics of Fluids</span>
+          <span class="skill-tag">Scientific Reports</span>
+          <span class="skill-tag warm">J. Hydraul. Res.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards" style="background: var(--card-bg);">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <div class="section-label">Recognition</div>
+      <h2 class="section-title">Awards &amp; Honors</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="awards-list fade-in">
+      <div class="award-item">
+        <div class="award-icon">🏆</div>
+        <div class="award-text"><strong>First-Class Academic Scholarship</strong>, Hohai University (Awarded annually)</div>
+        <div class="award-year">2020 – 2025</div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon">🥈</div>
+        <div class="award-text"><strong>Second Prize</strong>, National Water Science Numerical Simulation Innovation Competition</div>
+        <div class="award-year">2023</div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon">📄</div>
+        <div class="award-text"><strong>Outstanding Paper &amp; Presentation Awards</strong>, Jiangsu Smart Water Academic Innovation Forum</div>
+        <div class="award-year">2023</div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon">⭐</div>
+        <div class="award-text"><strong>Outstanding Graduate Student</strong>, Hohai University</div>
+        <div class="award-year">2022</div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon">🎤</div>
+        <div class="award-text"><strong>Outstanding Presenter Award (Top 4)</strong>, 12th Graduate "Academic Pinnacle" Conference</div>
+        <div class="award-year">2022</div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon">📜</div>
+        <div class="award-text"><strong>Outstanding Graduation Thesis Award</strong>, Taiyuan University of Technology</div>
+        <div class="award-year">2020</div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon">🎓</div>
+        <div class="award-text"><strong>National Inspirational Scholarship</strong>, Shanxi Provincial Department of Education</div>
+        <div class="award-year">2018</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REFEREES -->
+<section id="referees">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <div class="section-label">References</div>
+      <h2 class="section-title">Referees</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="referees-grid fade-in">
+      <div class="referee-card">
+        <div class="referee-name"><a href="https://scholar.google.com/citations?user=wGtxm8YAAAAJ&hl=en" target="_blank">Prof. Ling Zhou</a></div>
+        <div class="referee-title">Professor</div>
+        <div class="referee-inst">College of Water Conservancy and Hydropower Engineering, Hohai University</div>
+        <div class="referee-email">📍 Nanjing, China · 📧 <a href="mailto:zlhhu@163.com">zlhhu@163.com</a></div>
+      </div>
+      <div class="referee-card">
+        <div class="referee-name"><a href="https://scholar.google.com/citations?user=9jTHk6oAAAAJ&hl=en" target="_blank">Prof. Helena M. Ramos</a></div>
+        <div class="referee-title">Full Professor</div>
+        <div class="referee-inst">Dept. of Civil Engineering, Instituto Superior Técnico, University of Lisbon</div>
+        <div class="referee-email">📍 Lisbon, Portugal · 📧 <a href="mailto:helena.ramos@tecnico.ulisboa.pt">helena.ramos@tecnico.ulisboa.pt</a></div>
+      </div>
+      <div class="referee-card">
+        <div class="referee-name"><a href="https://www.polyu.edu.hk/cee/people/academic-staff/dr-tongchuan-che/" target="_blank">Dr. Tong-Chuan Che</a></div>
+        <div class="referee-title">Research Assistant Professor</div>
+        <div class="referee-inst">Dept. of Civil and Environmental Engineering, The Hong Kong Polytechnic University</div>
+        <div class="referee-email">📍 Hong Kong, China · 📧 <a href="mailto:tc.che@polyu.edu.hk">tc.che@polyu.edu.hk</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <div class="section-label">Get in Touch</div>
+      <h2 class="section-title">Contact</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="contact-grid fade-in">
+      <div class="contact-card">
+        <div class="contact-card-icon">📧</div>
+        <div class="contact-card-label">Email</div>
+        <div class="contact-card-value"><a href="mailto:Mei767215541@gmail.com">Mei767215541@gmail.com</a></div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">📍</div>
+        <div class="contact-card-label">Address</div>
+        <div class="contact-card-value">Rua Pascoal de Melo 8<br>Lisboa, Portugal</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">🔗</div>
+        <div class="contact-card-label">ResearchGate</div>
+        <div class="contact-card-value"><a href="https://www.researchgate.net/profile/Ruilin-Feng-2/research" target="_blank">View Profile →</a></div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">📚</div>
+        <div class="contact-card-label">Google Scholar</div>
+        <div class="contact-card-value"><a href="https://scholar.google.com/citations?user=Y5yzyg8AAAAJ&hl=zh-CN" target="_blank">View Profile →</a></div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">🏠</div>
+        <div class="contact-card-label">Homepage</div>
+        <div class="contact-card-value"><a href="https://mei767215541-rl.github.io/Ruilin-Feng/" target="_blank">Ruilin Feng's Homepage →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Ruilin Feng. All rights reserved.
+</footer>
+
+<script>
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 10);
+});
+
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => navLinks.classList.remove('open'));
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
