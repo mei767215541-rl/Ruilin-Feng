@@ -275,13 +275,14 @@ noscript .fade-in, .no-js .fade-in { opacity: 1; transform: none; }
         <img src="3.jpg" alt="College of Water Conservancy">
         <div class="gallery-overlay">College of Water Conservancy and Hydropower Engineering</div>
       </div>
+      <!-- 修正：5.jpg 是 IST 液压实验室（左图），4.jpg 是河海大学答辩现场（右图） -->
       <div class="gallery-item" style="grid-column:span 3;aspect-ratio:4/3;">
-        <img src="5.jpg" alt="PhD Defense at Hohai University">
-        <div class="gallery-overlay">Ph.D. Defense — Hohai University (河海大学博士研究生答辩), December 2025</div>
+        <img src="5.jpg" alt="With Prof. Helena Ramos at IST Hydraulic Lab">
+        <div class="gallery-overlay">With Prof. Helena Ramos &amp; research team — IST Hydraulic Lab, Lisbon (Interreg HY4RES)</div>
       </div>
       <div class="gallery-item" style="grid-column:span 3;aspect-ratio:4/3;">
-        <img src="4.jpg" alt="With Prof. Helena Ramos at IST Hydraulic Lab">
-        <div class="gallery-overlay">With Prof. Helena Ramos &amp; research team — IST Hydraulic Lab, Lisbon (Interreg HY4RES)</div>
+        <img src="4.jpg" alt="PhD Defense at Hohai University">
+        <div class="gallery-overlay">Ph.D. Defense — Hohai University (河海大学博士研究生答辩), December 2025</div>
       </div>
     </div>
     <p class="gallery-caption fade-in">Ph.D. Graduation &amp; Research Life — Hohai University · IST Lisboa · Deltares</p>
@@ -515,7 +516,7 @@ const navLinks = document.getElementById('navLinks');
 hamburger.addEventListener('click', () => { navLinks.classList.toggle('open'); });
 navLinks.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => navLinks.classList.remove('open')); });
 
-// Scroll reveal — wrapped in DOMContentLoaded for safety
+// Scroll reveal
 document.addEventListener('DOMContentLoaded', function() {
   try {
     const observer = new IntersectionObserver((entries) => {
@@ -523,12 +524,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   } catch(e) {
-    // Fallback: make everything visible if IntersectionObserver fails
     document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
   }
 });
 
-// Email injection — avoids Cloudflare obfuscation
+// Email injection
 (function() {
   var u = 'Mei767215541';
   var d = 'gmail.com';
