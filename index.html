@@ -203,27 +203,26 @@ section { padding: 5rem 2rem; }
 /* === PHOTO GALLERY === */
 .gallery-section { background: var(--card-bg); }
 
-/* 5-photo masonry-style layout */
+/* 5-photo layout: row1 = 3 equal, row2 = 2 equal */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto auto;
+  grid-template-columns: repeat(6, 1fr);
   gap: 1.2rem;
 }
 
-/* First row: 3 equal photos */
+/* First row: 3 equal photos, each span 2 of 6 columns */
 .gallery-item:nth-child(1),
 .gallery-item:nth-child(2),
 .gallery-item:nth-child(3) {
-  grid-column: span 1;
+  grid-column: span 2;
+  aspect-ratio: 4/3;
 }
 
-/* Second row: 2 wider photos */
-.gallery-item:nth-child(4) {
-  grid-column: span 2;
-}
+/* Second row: 2 equal photos, each span 3 of 6 columns */
+.gallery-item:nth-child(4),
 .gallery-item:nth-child(5) {
-  grid-column: span 1;
+  grid-column: span 3;
+  aspect-ratio: 4/3;
 }
 
 .gallery-item {
@@ -233,19 +232,6 @@ section { padding: 5rem 2rem; }
   border: 1px solid var(--border);
   transition: transform 0.3s, box-shadow 0.3s;
   position: relative;
-}
-
-/* First row photos: 4:3 */
-.gallery-item:nth-child(1),
-.gallery-item:nth-child(2),
-.gallery-item:nth-child(3) {
-  aspect-ratio: 4/3;
-}
-
-/* Second row photos: 16:9 */
-.gallery-item:nth-child(4),
-.gallery-item:nth-child(5) {
-  aspect-ratio: 16/9;
 }
 
 .gallery-item:hover {
@@ -554,6 +540,9 @@ footer {
   .gallery-grid {
     grid-template-columns: 1fr;
   }
+  .gallery-item:nth-child(1),
+  .gallery-item:nth-child(2),
+  .gallery-item:nth-child(3),
   .gallery-item:nth-child(4),
   .gallery-item:nth-child(5) {
     grid-column: span 1;
@@ -595,7 +584,7 @@ footer {
         air–water two-phase flow dynamics, and computational fluid mechanics for water conveyance systems.
       </p>
       <div class="hero-links">
-        <a href="mailto:Mei767215541@gmail.com" class="btn btn-primary">✉ Get in Touch</a>
+        <a href="/cdn-cgi/l/email-protection#f7ba929ec0c1c0c5c6c2c2c3c6b7909a969e9bd994989a" class="btn btn-primary">✉ Get in Touch</a>
         <a href="https://scholar.google.com/citations?user=Y5yzyg8AAAAJ&hl=zh-CN" class="btn btn-outline" target="_blank">Google Scholar</a>
         <a href="https://www.researchgate.net/profile/Ruilin-Feng-2/research" class="btn btn-outline" target="_blank">ResearchGate</a>
       </div>
@@ -628,7 +617,7 @@ footer {
             <div class="info-icon warm">📧</div>
             <div>
               <div class="info-label">Email</div>
-              <div class="info-value"><a href="mailto:Mei767215541@gmail.com">Mei767215541@gmail.com</a></div>
+              <div class="info-value"><a href="/cdn-cgi/l/email-protection#e0ad8589d7d6d7d2d1d5d5d4d1a0878d81898cce838f8d"><span class="__cf_email__" data-cfemail="9bd6fef2acadaca9aaaeaeafaadbfcf6faf2f7b5f8f4f6">[email&#160;protected]</span></a></div>
             </div>
           </div>
           <div class="info-item">
@@ -1084,19 +1073,19 @@ footer {
         <div class="referee-name"><a href="https://scholar.google.com/citations?user=wGtxm8YAAAAJ&hl=en" target="_blank">Prof. Ling Zhou</a></div>
         <div class="referee-title">Professor</div>
         <div class="referee-inst">College of Water Conservancy and Hydropower Engineering, Hohai University</div>
-        <div class="referee-email">📍 Nanjing, China · 📧 <a href="mailto:zlhhu@163.com">zlhhu@163.com</a></div>
+        <div class="referee-email">📍 Nanjing, China · 📧 <a href="/cdn-cgi/l/email-protection#91ebfdf9f9e4d1a0a7a2bff2fefc"><span class="__cf_email__" data-cfemail="72081e1a1a07324344415c111d1f">[email&#160;protected]</span></a></div>
       </div>
       <div class="referee-card">
         <div class="referee-name"><a href="https://scholar.google.com/citations?user=9jTHk6oAAAAJ&hl=en" target="_blank">Prof. Helena M. Ramos</a></div>
         <div class="referee-title">Full Professor</div>
         <div class="referee-inst">Dept. of Civil Engineering, Instituto Superior Técnico, University of Lisbon</div>
-        <div class="referee-email">📍 Lisbon, Portugal · 📧 <a href="mailto:helena.ramos@tecnico.ulisboa.pt">helena.ramos@tecnico.ulisboa.pt</a></div>
+        <div class="referee-email">📍 Lisbon, Portugal · 📧 <a href="/cdn-cgi/l/email-protection#e9818c858c8788c79b8884869aa99d8c8a87808a86c79c85809a8b8688c7999d"><span class="__cf_email__" data-cfemail="f9919c959c9798d78b9894968ab98d9c9a97909a96d78c95908a9b9698d7898d">[email&#160;protected]</span></a></div>
       </div>
       <div class="referee-card">
         <div class="referee-name"><a href="https://www.polyu.edu.hk/cee/people/academic-staff/dr-tongchuan-che/" target="_blank">Dr. Tong-Chuan Che</a></div>
         <div class="referee-title">Research Assistant Professor</div>
         <div class="referee-inst">Dept. of Civil and Environmental Engineering, The Hong Kong Polytechnic University</div>
-        <div class="referee-email">📍 Hong Kong, China · 📧 <a href="mailto:tc.che@polyu.edu.hk">tc.che@polyu.edu.hk</a></div>
+        <div class="referee-email">📍 Hong Kong, China · 📧 <a href="/cdn-cgi/l/email-protection#b9cdda97dad1dcf9c9d6d5c0cc97dcddcc97d1d2"><span class="__cf_email__" data-cfemail="ec988fc28f8489ac9c83809599c2898899c28487">[email&#160;protected]</span></a></div>
       </div>
     </div>
   </div>
@@ -1114,7 +1103,7 @@ footer {
       <div class="contact-card">
         <div class="contact-card-icon">📧</div>
         <div class="contact-card-label">Email</div>
-        <div class="contact-card-value"><a href="mailto:Mei767215541@gmail.com">Mei767215541@gmail.com</a></div>
+        <div class="contact-card-value"><a href="/cdn-cgi/l/email-protection#6528000c525352575450505154250208040c094b060a08"><span class="__cf_email__" data-cfemail="f1bc9498c6c7c6c3c0c4c4c5c0b1969c90989ddf929e9c">[email&#160;protected]</span></a></div>
       </div>
       <div class="contact-card">
         <div class="contact-card-icon">📍</div>
@@ -1144,30 +1133,4 @@ footer {
   © 2026 Ruilin Feng. All rights reserved.
 </footer>
 
-<script>
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 10);
-});
-
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('navLinks');
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-});
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => navLinks.classList.remove('open'));
-});
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
-</body>
-</html>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/em
