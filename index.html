@@ -14,7 +14,7 @@
   --card-bg: #fffefa;
   --shadow: 0 2px 20px rgba(26,26,46,0.06);
   --shadow-hover: 0 8px 40px rgba(26,26,46,0.1);
-  --nav-h: 60px;
+  --nav-h: 62px;
 }
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { font-size: 16px; }
@@ -24,33 +24,30 @@ body {
   height: 100vh; display: flex; flex-direction: column; overflow: hidden;
 }
 
-/* NAV */
+/* ── NAV ── */
 nav {
   height: var(--nav-h); flex-shrink: 0;
-  background: rgba(247,245,240,0.95); backdrop-filter: blur(20px);
+  background: rgba(247,245,240,0.96); backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border); z-index: 100;
 }
 .nav-inner {
-  max-width: 1200px; width: 100%; height: 100%;
+  max-width: 1100px; width: 100%; height: 100%;
   margin: 0 auto; padding: 0 2rem;
   display: flex; align-items: center;
 }
 .nav-brand {
   font-family: 'Cormorant Garamond', serif; font-weight: 700;
   font-size: 1.2rem; color: var(--ink); text-decoration: none;
-  letter-spacing: -0.02em; margin-right: 2.5rem; white-space: nowrap;
-  cursor: pointer;
+  letter-spacing: -0.02em; margin-right: 3rem; white-space: nowrap; cursor: pointer;
 }
 .nav-tabs {
   display: flex; align-items: stretch; height: var(--nav-h);
-  list-style: none; flex: 1;
-  overflow-x: auto; scrollbar-width: none;
+  list-style: none; gap: 0;
 }
-.nav-tabs::-webkit-scrollbar { display: none; }
 .nav-tabs li { display: flex; }
 .nav-tabs a {
-  display: flex; align-items: center; padding: 0 1rem;
-  font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em;
+  display: flex; align-items: center; padding: 0 1.3rem;
+  font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em;
   text-transform: uppercase; color: var(--text-muted);
   text-decoration: none; cursor: pointer;
   border-bottom: 2px solid transparent;
@@ -62,7 +59,7 @@ nav {
 .hamburger { display: none; cursor: pointer; background: none; border: none; padding: 4px; margin-left: auto; }
 .hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); margin: 5px 0; transition: 0.3s; }
 
-/* MOBILE DRAWER */
+/* ── MOBILE DRAWER ── */
 .mobile-drawer {
   display: none; position: fixed;
   top: var(--nav-h); left: 0; right: 0; bottom: 0;
@@ -71,37 +68,48 @@ nav {
 }
 .mobile-drawer.open { display: flex; }
 .mobile-drawer a {
-  padding: 0.85rem 0; font-size: 0.82rem; font-weight: 500;
+  padding: 0.9rem 0; font-size: 0.82rem; font-weight: 500;
   color: var(--text-muted); text-decoration: none; cursor: pointer;
   border-bottom: 1px solid var(--border);
-  letter-spacing: 0.05em; text-transform: uppercase;
+  letter-spacing: 0.07em; text-transform: uppercase;
 }
 .mobile-drawer a.active, .mobile-drawer a:hover { color: var(--accent); }
 
-/* CONTENT AREA */
+/* ── CONTENT AREA ── */
 #content-area { flex: 1; overflow-y: auto; }
 
-/* PAGES */
-.page { display: none; animation: fadeIn 0.3s ease-out; }
+/* ── PAGES ── */
+.page { display: none; animation: fadeIn 0.28s ease-out; }
 .page.active { display: block; }
 @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
 
-/* SHARED */
+/* ── SHARED ── */
 .page-wrap { max-width: 1100px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
 .page-header { margin-bottom: 2.8rem; }
-.page-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--warm); margin-bottom: 0.5rem; }
+.page-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--warm); margin-bottom: 0.5rem; }
 .page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem, 3.5vw, 2.8rem); font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
 .page-divider { width: 40px; height: 2px; background: linear-gradient(90deg, var(--accent), var(--warm)); margin-top: 0.9rem; }
 
-/* HOME */
-#page-home .page-wrap { min-height: calc(100vh - var(--nav-h)); display: flex; align-items: center; padding-top: 2rem; padding-bottom: 2rem; }
+/* section sub-heading inside a page */
+.sub-heading {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700;
+  color: var(--ink); margin: 3.2rem 0 1.4rem; display: flex; align-items: center; gap: 0.8rem;
+}
+.sub-heading::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.sub-heading:first-of-type { margin-top: 0; }
+
+/* ── HOME ── */
+#page-home .page-wrap {
+  min-height: calc(100vh - var(--nav-h));
+  display: flex; align-items: center; padding-top: 2rem; padding-bottom: 2rem;
+}
 .hero-inner { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
 .hero-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.6rem; }
 .hero-label::before { content: ''; width: 28px; height: 1.5px; background: var(--accent); }
 .hero-h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5vw, 4.2rem); font-weight: 700; line-height: 1.1; color: var(--ink); margin-bottom: 1.5rem; letter-spacing: -0.03em; }
 .hero-desc { font-size: 1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem; max-width: 480px; }
 .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
-.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.6rem; border-radius: 6px; font-size: 0.85rem; font-weight: 500; text-decoration: none; transition: all 0.3s; cursor: pointer; border: none; }
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.6rem; border-radius: 6px; font-size: 0.85rem; font-weight: 500; text-decoration: none; transition: all 0.28s; cursor: pointer; }
 .btn-primary { background: var(--accent); color: #fff; border: 1.5px solid var(--accent); }
 .btn-primary:hover { background: #245075; transform: translateY(-1px); box-shadow: var(--shadow-hover); }
 .btn-outline { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
@@ -114,28 +122,18 @@ nav {
 .info-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.9rem; }
 .info-icon.blue { background: var(--accent-light); }
 .info-icon.warm { background: var(--warm-light); }
-.info-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 2px; }
-.info-value { font-size: 0.88rem; font-weight: 500; color: var(--ink); }
-.info-value a { color: var(--accent); text-decoration: none; }
+.info-lbl { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 2px; }
+.info-val { font-size: 0.88rem; font-weight: 500; color: var(--ink); }
+.info-val a { color: var(--accent); text-decoration: none; }
 
-.quick-nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.9rem; margin-top: 2.5rem; }
-.qcard { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.2rem; cursor: pointer; transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s; }
+.quick-nav { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.85rem; margin-top: 2.5rem; }
+.qcard { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; cursor: pointer; transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s; }
 .qcard:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); border-color: var(--accent); }
-.qcard-icon { font-size: 1.2rem; margin-bottom: 0.4rem; }
-.qcard-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--accent); }
+.qcard-icon { font-size: 1.1rem; margin-bottom: 0.4rem; }
+.qcard-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--accent); }
 
-/* GALLERY */
-.gallery-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.1rem; }
-.gitem { border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--border); transition: transform 0.3s, box-shadow 0.3s; position: relative; }
-.gitem:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
-.gitem img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
-.gitem:hover img { transform: scale(1.03); }
-.gitem .gov { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(26,26,46,0.75)); color: #fff; padding: 0.9rem 0.9rem 0.7rem; font-size: 0.76rem; font-style: italic; opacity: 0; transition: opacity 0.3s; }
-.gitem:hover .gov { opacity: 1; }
-.gallery-caption { text-align: center; margin-top: 1rem; font-size: 0.84rem; color: var(--text-muted); font-style: italic; }
-
-/* ABOUT */
-.about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: start; }
+/* ── ABOUT (includes gallery) ── */
+.about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: start; margin-bottom: 0; }
 .about-text p { margin-bottom: 1rem; color: var(--text); font-size: 0.95rem; }
 .about-text a { color: var(--accent); text-decoration: none; }
 .about-text a:hover { text-decoration: underline; }
@@ -145,139 +143,143 @@ nav {
 .hi-num { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; color: var(--accent); line-height: 1; }
 .hi-lab { font-size: 0.77rem; color: var(--text-muted); margin-top: 0.3rem; }
 
-/* TIMELINE */
+/* gallery (inside about) */
+.gallery-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; }
+.gitem { border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--border); transition: transform 0.3s, box-shadow 0.3s; position: relative; }
+.gitem:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+.gitem img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+.gitem:hover img { transform: scale(1.03); }
+.gov { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(26,26,46,0.75)); color: #fff; padding: 0.9rem 0.9rem 0.7rem; font-size: 0.75rem; font-style: italic; opacity: 0; transition: opacity 0.3s; }
+.gitem:hover .gov { opacity: 1; }
+.gallery-caption { text-align: center; margin-top: 0.9rem; font-size: 0.83rem; color: var(--text-muted); font-style: italic; }
+
+/* ── CV (Education + Skills + Awards) ── */
 .timeline { position: relative; padding-left: 2rem; }
 .timeline::before { content: ''; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 1.5px; background: var(--border); }
 .tl-item { position: relative; margin-bottom: 2.2rem; padding-left: 1.5rem; }
 .tl-item::before { content: ''; position: absolute; left: -2rem; top: 8px; width: 13px; height: 13px; border-radius: 50%; border: 2.5px solid var(--accent); background: var(--paper); z-index: 1; }
 .tl-item:first-child::before { background: var(--accent); }
-.tl-date { font-size: 0.75rem; font-weight: 600; color: var(--accent); letter-spacing: 0.05em; margin-bottom: 0.3rem; }
+.tl-date { font-size: 0.74rem; font-weight: 600; color: var(--accent); letter-spacing: 0.05em; margin-bottom: 0.3rem; }
 .tl-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700; color: var(--ink); }
 .tl-org { font-size: 0.87rem; color: var(--text-muted); margin-bottom: 0.3rem; }
 .tl-detail { font-size: 0.84rem; color: var(--text); }
 .tl-detail a { color: var(--accent); text-decoration: none; }
 .tl-detail a:hover { text-decoration: underline; }
 
-/* PUBLICATIONS */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.1rem; }
+.sk-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.4rem 1.5rem; box-shadow: var(--shadow); transition: transform 0.3s; }
+.sk-card:hover { transform: translateY(-2px); }
+.sk-title { font-family: 'Cormorant Garamond', serif; font-size: 1.02rem; font-weight: 700; color: var(--ink); margin-bottom: 0.8rem; }
+.sk-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.sk-tag { font-size: 0.73rem; padding: 0.22rem 0.6rem; background: var(--accent-light); color: var(--accent); border-radius: 4px; font-weight: 500; }
+.sk-tag.w { background: var(--warm-light); color: #a07040; }
+
+.awards-list { display: grid; gap: 0.55rem; }
+.aw-item { display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: center; padding: 0.85rem 1.1rem; border-radius: 8px; transition: background 0.3s; }
+.aw-item:hover { background: var(--card-bg); }
+.aw-icon { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, var(--warm), #d4a574); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; }
+.aw-text { font-size: 0.87rem; color: var(--text); }
+.aw-text strong { color: var(--ink); }
+.aw-year { font-size: 0.76rem; color: var(--text-muted); font-weight: 500; white-space: nowrap; }
+
+/* ── RESEARCH (Publications + Experience) ── */
 .pub-cat { margin-bottom: 2.5rem; }
-.pub-cat-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+.pub-cat-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
 .pub-list { list-style: none; }
-.pub-item { padding: 0.85rem 1.2rem; margin-bottom: 0.4rem; border-radius: 8px; border-left: 3px solid transparent; transition: all 0.3s; font-size: 0.87rem; line-height: 1.75; }
+.pub-item { padding: 0.8rem 1.2rem; margin-bottom: 0.35rem; border-radius: 8px; border-left: 3px solid transparent; transition: all 0.28s; font-size: 0.87rem; line-height: 1.75; }
 .pub-item:hover { background: var(--card-bg); border-left-color: var(--accent); box-shadow: var(--shadow); }
-.pub-item .pt a { color: var(--ink); text-decoration: none; font-weight: 600; }
-.pub-item .pt a:hover { color: var(--accent); }
 .pub-item .jn { font-style: italic; color: var(--accent); }
-.badge { display: inline-block; font-size: 0.63rem; font-weight: 600; padding: 0.15rem 0.5rem; border-radius: 3px; letter-spacing: 0.03em; margin-left: 0.3rem; vertical-align: middle; }
+.pub-item a { color: var(--ink); text-decoration: none; font-weight: 600; }
+.pub-item a:hover { color: var(--accent); }
+.badge { display: inline-block; font-size: 0.62rem; font-weight: 600; padding: 0.13rem 0.5rem; border-radius: 3px; letter-spacing: 0.03em; margin-left: 0.3rem; vertical-align: middle; }
 .bq1 { background: #e8f5e9; color: #2e7d32; }
 .bq2 { background: #e3f2fd; color: #1565c0; }
 .bq3 { background: #fff3e0; color: #e65100; }
 .bsub { background: #f3e5f5; color: #7b1fa2; }
 .bacc { background: #e0f2f1; color: #00695c; }
 
-/* EXPERIENCE */
-.exp-grid { display: grid; gap: 1.4rem; }
-.exp-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.7rem 2rem; box-shadow: var(--shadow); transition: transform 0.3s, box-shadow 0.3s; display: grid; grid-template-columns: auto 1fr; gap: 1.4rem; align-items: start; }
+.exp-grid { display: grid; gap: 1.3rem; }
+.exp-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.6rem 1.8rem; box-shadow: var(--shadow); transition: transform 0.28s, box-shadow 0.28s; display: grid; grid-template-columns: auto 1fr; gap: 1.3rem; align-items: start; }
 .exp-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
-.exp-mk { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+.exp-mk { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
 .exp-mk.eng { background: var(--accent-light); }
 .exp-mk.res { background: var(--warm-light); }
-.exp-role { font-weight: 600; color: var(--ink); font-size: 0.95rem; }
-.exp-org { font-size: 0.83rem; color: var(--accent); margin-top: 0.15rem; }
-.exp-date { font-size: 0.74rem; color: var(--text-muted); margin-top: 0.15rem; }
-.exp-desc { font-size: 0.85rem; color: var(--text); margin-top: 0.6rem; line-height: 1.7; }
+.exp-role { font-weight: 600; color: var(--ink); font-size: 0.94rem; }
+.exp-org { font-size: 0.82rem; color: var(--accent); margin-top: 0.15rem; }
+.exp-date { font-size: 0.73rem; color: var(--text-muted); margin-top: 0.15rem; }
+.exp-desc { font-size: 0.84rem; color: var(--text); margin-top: 0.55rem; line-height: 1.7; }
 
-/* SKILLS */
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }
-.sk-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem 1.6rem; box-shadow: var(--shadow); transition: transform 0.3s; }
-.sk-card:hover { transform: translateY(-2px); }
-.sk-title { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 700; color: var(--ink); margin-bottom: 0.8rem; }
-.sk-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-.sk-tag { font-size: 0.74rem; padding: 0.25rem 0.65rem; background: var(--accent-light); color: var(--accent); border-radius: 4px; font-weight: 500; }
-.sk-tag.w { background: var(--warm-light); color: #a07040; }
-
-/* BEYOND */
+/* ── BEYOND ── */
 .beyond-intro { font-size: 1rem; color: var(--text); line-height: 1.9; max-width: 740px; margin-bottom: 3rem; }
 .beyond-intro em { color: var(--accent); font-style: normal; font-weight: 500; }
-.b-sub { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 700; color: var(--ink); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.8rem; }
-.b-sub::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-.roots-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-bottom: 3rem; }
-.root-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 1.7rem; box-shadow: var(--shadow); position: relative; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+.roots-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-bottom: 0; }
+.root-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 1.6rem; box-shadow: var(--shadow); position: relative; overflow: hidden; transition: transform 0.28s, box-shadow 0.28s; }
 .root-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
 .root-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
 .root-card.xz::before { background: linear-gradient(90deg, #c4956a, #d4a574); }
 .root-card.ty::before { background: linear-gradient(90deg, #2d5f8a, #5a8ab5); }
 .root-card.nj::before { background: linear-gradient(90deg, #8a4f7d, #b07aa0); }
-.root-emoji { font-size: 1.7rem; display: block; margin-bottom: 0.7rem; }
-.root-city { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 0.2rem; }
-.root-sub { font-size: 0.72rem; color: var(--warm); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.7rem; }
-.root-desc { font-size: 0.83rem; color: var(--text-muted); line-height: 1.7; }
-.globe-wrap { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 2rem 2.2rem; box-shadow: var(--shadow); margin-bottom: 3rem; }
-.chips { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.8rem; }
-.chip { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.4rem 0.95rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500; border: 1px solid var(--border); background: var(--paper); color: var(--text); transition: all 0.25s; cursor: default; }
+.root-emoji { font-size: 1.6rem; display: block; margin-bottom: 0.6rem; }
+.root-city { font-family: 'Cormorant Garamond', serif; font-size: 1.18rem; font-weight: 700; color: var(--ink); margin-bottom: 0.18rem; }
+.root-sub { font-size: 0.7rem; color: var(--warm); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.65rem; }
+.root-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.68; }
+.globe-wrap { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 1.8rem 2rem; box-shadow: var(--shadow); margin-bottom: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-bottom: 1.6rem; }
+.chip { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.38rem 0.9rem; border-radius: 20px; font-size: 0.79rem; font-weight: 500; border: 1px solid var(--border); background: var(--paper); color: var(--text); transition: all 0.22s; cursor: default; }
 .chip:hover { background: var(--accent-light); border-color: var(--accent); color: var(--accent); transform: scale(1.04); }
-.tstats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
-.tstat { text-align: center; padding: 1.2rem; background: var(--paper); border-radius: 10px; border: 1px solid var(--border); }
-.tstat-n { font-family: 'Cormorant Garamond', serif; font-size: 2.1rem; font-weight: 700; color: var(--accent); line-height: 1; }
-.tstat-l { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.35rem; }
-.pnote { background: var(--warm-light); border: 1px solid rgba(196,149,106,0.3); border-radius: 12px; padding: 1.2rem 1.5rem; font-size: 0.87rem; color: var(--text); line-height: 1.75; display: flex; align-items: flex-start; gap: 0.8rem; }
-.pnote-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.15rem; }
-.noodle-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
-.noodle-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem 1.8rem; box-shadow: var(--shadow); transition: transform 0.3s; }
+.tstats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.4rem; }
+.tstat { text-align: center; padding: 1.1rem; background: var(--paper); border-radius: 10px; border: 1px solid var(--border); }
+.tstat-n { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--accent); line-height: 1; }
+.tstat-l { font-size: 0.71rem; color: var(--text-muted); margin-top: 0.32rem; }
+.pnote { background: var(--warm-light); border: 1px solid rgba(196,149,106,0.3); border-radius: 12px; padding: 1.1rem 1.4rem; font-size: 0.86rem; color: var(--text); line-height: 1.75; display: flex; align-items: flex-start; gap: 0.8rem; }
+.pnote-icon { font-size: 1.05rem; flex-shrink: 0; margin-top: 0.15rem; }
+.noodle-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem; }
+.noodle-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 13px; padding: 1.4rem 1.6rem; box-shadow: var(--shadow); transition: transform 0.28s; }
 .noodle-card:hover { transform: translateY(-2px); }
-.noodle-hd { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem; }
-.noodle-ic { width: 42px; height: 42px; border-radius: 10px; background: var(--warm-light); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0; }
-.noodle-nm { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 700; color: var(--ink); }
-.noodle-cn { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.1rem; }
-.ntags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-.ntag { font-size: 0.72rem; padding: 0.2rem 0.6rem; border-radius: 4px; background: var(--accent-light); color: var(--accent); font-weight: 500; }
+.noodle-hd { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.9rem; }
+.noodle-ic { width: 40px; height: 40px; border-radius: 9px; background: var(--warm-light); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+.noodle-nm { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 700; color: var(--ink); }
+.noodle-cn { font-size: 0.77rem; color: var(--text-muted); margin-top: 0.08rem; }
+.ntags { display: flex; flex-wrap: wrap; gap: 0.38rem; }
+.ntag { font-size: 0.71rem; padding: 0.18rem 0.55rem; border-radius: 4px; background: var(--accent-light); color: var(--accent); font-weight: 500; }
 .ntag.w { background: var(--warm-light); color: #a07040; }
 
-/* AWARDS */
-.awards-list { display: grid; gap: 0.6rem; }
-.aw-item { display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: center; padding: 0.9rem 1.2rem; border-radius: 8px; transition: background 0.3s; }
-.aw-item:hover { background: var(--card-bg); }
-.aw-icon { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, var(--warm), #d4a574); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; }
-.aw-text { font-size: 0.87rem; color: var(--text); }
-.aw-text strong { color: var(--ink); }
-.aw-year { font-size: 0.77rem; color: var(--text-muted); font-weight: 500; }
-
-/* REFEREES */
-.ref-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-.ref-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.8rem; box-shadow: var(--shadow); transition: transform 0.3s, box-shadow 0.3s; }
-.ref-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
-.ref-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.3rem; }
-.ref-name a { color: var(--ink); text-decoration: none; }
-.ref-name a:hover { color: var(--accent); }
-.ref-title { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.2rem; }
-.ref-inst { font-size: 0.84rem; color: var(--accent); font-style: italic; margin-bottom: 0.5rem; }
-.ref-email { font-size: 0.82rem; color: var(--text); }
-.ref-email a { color: var(--accent); text-decoration: none; }
-.ref-email a:hover { text-decoration: underline; }
-
-/* CONTACT */
-.cw { background: var(--ink); border-radius: 16px; padding: 3rem; }
+/* ── CONTACT (includes Referees) ── */
+.cw { background: var(--ink); border-radius: 16px; padding: 2.8rem; }
 .cw .page-label { color: var(--warm); }
 .cw .page-title { color: #fff; }
 .cw .page-divider { margin-bottom: 2rem; }
-.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.3rem; }
-.cc { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 1.4rem; transition: background 0.3s; }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr)); gap: 1.2rem; }
+.cc { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 1.3rem; transition: background 0.28s; }
 .cc:hover { background: rgba(255,255,255,0.09); }
-.cc-icon { font-size: 1.2rem; margin-bottom: 0.5rem; }
-.cc-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.45); margin-bottom: 0.3rem; }
-.cc-val { font-size: 0.88rem; }
+.cc-icon { font-size: 1.15rem; margin-bottom: 0.5rem; }
+.cc-label { font-size: 0.67rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.42); margin-bottom: 0.28rem; }
+.cc-val { font-size: 0.87rem; }
 .cc-val a { color: #fff; text-decoration: none; }
 .cc-val a:hover { color: var(--warm); }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
+.ref-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.4rem; }
+.ref-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.7rem; box-shadow: var(--shadow); transition: transform 0.28s, box-shadow 0.28s; }
+.ref-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+.ref-name { font-family: 'Cormorant Garamond', serif; font-size: 1.08rem; font-weight: 700; color: var(--ink); margin-bottom: 0.28rem; }
+.ref-name a { color: var(--ink); text-decoration: none; }
+.ref-name a:hover { color: var(--accent); }
+.ref-role { font-size: 0.81rem; color: var(--text-muted); margin-bottom: 0.18rem; }
+.ref-inst { font-size: 0.83rem; color: var(--accent); font-style: italic; margin-bottom: 0.5rem; }
+.ref-email { font-size: 0.81rem; color: var(--text); }
+.ref-email a { color: var(--accent); text-decoration: none; }
+.ref-email a:hover { text-decoration: underline; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
   .nav-tabs { display: none; }
   .hamburger { display: block; }
   .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
   .hero-card { max-width: 100%; }
   .about-grid { grid-template-columns: 1fr; }
-  .quick-nav { grid-template-columns: repeat(2, 1fr); }
+  .quick-nav { grid-template-columns: repeat(3, 1fr); }
 }
-@media (max-width: 640px) {
+@media (max-width: 600px) {
   .roots-row { grid-template-columns: 1fr; }
   .noodle-grid { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns: 1fr 1fr; }
@@ -286,7 +288,9 @@ nav {
   .exp-mk { display: none; }
   .aw-item { grid-template-columns: auto 1fr; }
   .aw-year { grid-column: 2; }
+  .quick-nav { grid-template-columns: repeat(2, 1fr); }
   .page-wrap { padding: 2rem 1.2rem 4rem; }
+  .cw { padding: 2rem 1.4rem; }
 }
 </style>
 </head>
@@ -297,17 +301,12 @@ nav {
   <div class="nav-inner">
     <a class="nav-brand" onclick="go('home')">R. Feng</a>
     <ul class="nav-tabs" id="navTabs">
-      <li><a onclick="go('home')" data-p="home" class="active">Home</a></li>
-      <li><a onclick="go('gallery')" data-p="gallery">Gallery</a></li>
-      <li><a onclick="go('about')" data-p="about">About</a></li>
-      <li><a onclick="go('education')" data-p="education">Education</a></li>
-      <li><a onclick="go('publications')" data-p="publications">Publications</a></li>
-      <li><a onclick="go('experience')" data-p="experience">Experience</a></li>
-      <li><a onclick="go('skills')" data-p="skills">Skills</a></li>
-      <li><a onclick="go('beyond')" data-p="beyond">Beyond</a></li>
-      <li><a onclick="go('awards')" data-p="awards">Awards</a></li>
-      <li><a onclick="go('referees')" data-p="referees">Referees</a></li>
-      <li><a onclick="go('contact')" data-p="contact">Contact</a></li>
+      <li><a onclick="go('home')"         data-p="home"         class="active">Home</a></li>
+      <li><a onclick="go('about')"        data-p="about">About</a></li>
+      <li><a onclick="go('cv')"           data-p="cv">CV</a></li>
+      <li><a onclick="go('research')"     data-p="research">Research</a></li>
+      <li><a onclick="go('beyond')"       data-p="beyond">Beyond</a></li>
+      <li><a onclick="go('contact')"      data-p="contact">Contact</a></li>
     </ul>
     <button class="hamburger" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
@@ -315,22 +314,17 @@ nav {
 
 <!-- MOBILE DRAWER -->
 <div class="mobile-drawer" id="drawer">
-  <a onclick="go('home');cd()" data-p="home">Home</a>
-  <a onclick="go('gallery');cd()" data-p="gallery">Gallery</a>
-  <a onclick="go('about');cd()" data-p="about">About</a>
-  <a onclick="go('education');cd()" data-p="education">Education</a>
-  <a onclick="go('publications');cd()" data-p="publications">Publications</a>
-  <a onclick="go('experience');cd()" data-p="experience">Experience</a>
-  <a onclick="go('skills');cd()" data-p="skills">Skills</a>
-  <a onclick="go('beyond');cd()" data-p="beyond">Beyond</a>
-  <a onclick="go('awards');cd()" data-p="awards">Awards</a>
-  <a onclick="go('referees');cd()" data-p="referees">Referees</a>
-  <a onclick="go('contact');cd()" data-p="contact">Contact</a>
+  <a onclick="go('home');cd()"     data-p="home">Home</a>
+  <a onclick="go('about');cd()"    data-p="about">About</a>
+  <a onclick="go('cv');cd()"       data-p="cv">CV</a>
+  <a onclick="go('research');cd()" data-p="research">Research</a>
+  <a onclick="go('beyond');cd()"   data-p="beyond">Beyond</a>
+  <a onclick="go('contact');cd()"  data-p="contact">Contact</a>
 </div>
 
 <div id="content-area">
 
-<!-- HOME -->
+<!-- ════ HOME ════ -->
 <div id="page-home" class="page active">
   <div class="page-wrap">
     <div class="hero-inner">
@@ -344,20 +338,21 @@ nav {
           <a href="https://www.researchgate.net/profile/Ruilin-Feng-2/research" class="btn btn-outline" target="_blank">ResearchGate</a>
         </div>
         <div class="quick-nav">
-          <div class="qcard" onclick="go('publications')"><div class="qcard-icon">📄</div><div class="qcard-label">Publications</div></div>
-          <div class="qcard" onclick="go('education')"><div class="qcard-icon">🎓</div><div class="qcard-label">Education</div></div>
-          <div class="qcard" onclick="go('experience')"><div class="qcard-icon">🌊</div><div class="qcard-label">Experience</div></div>
+          <div class="qcard" onclick="go('about')"><div class="qcard-icon">👤</div><div class="qcard-label">About</div></div>
+          <div class="qcard" onclick="go('cv')"><div class="qcard-icon">🎓</div><div class="qcard-label">CV</div></div>
+          <div class="qcard" onclick="go('research')"><div class="qcard-icon">📄</div><div class="qcard-label">Research</div></div>
           <div class="qcard" onclick="go('beyond')"><div class="qcard-icon">✈️</div><div class="qcard-label">Beyond</div></div>
+          <div class="qcard" onclick="go('contact')"><div class="qcard-icon">✉️</div><div class="qcard-label">Contact</div></div>
         </div>
       </div>
       <div style="display:flex;justify-content:center;">
         <div class="hero-card">
           <div class="info-grid">
-            <div class="info-item"><div class="info-icon blue">🎓</div><div><div class="info-label">Position</div><div class="info-value">Postdoc, Instituto Superior Técnico</div></div></div>
-            <div class="info-item"><div class="info-icon warm">📍</div><div><div class="info-label">Location</div><div class="info-value">Lisbon, Portugal</div></div></div>
-            <div class="info-item"><div class="info-icon blue">🔬</div><div><div class="info-label">Research Focus</div><div class="info-value">Hydraulic Transients &amp; Air–Water Flow</div></div></div>
-            <div class="info-item"><div class="info-icon warm">📧</div><div><div class="info-label">Email</div><div class="info-value" id="hero-email"></div></div></div>
-            <div class="info-item"><div class="info-icon blue">🏠</div><div><div class="info-label">Address</div><div class="info-value">Rua Pascoal de Melo 8, Lisboa</div></div></div>
+            <div class="info-item"><div class="info-icon blue">🎓</div><div><div class="info-lbl">Position</div><div class="info-val">Postdoc, Instituto Superior Técnico</div></div></div>
+            <div class="info-item"><div class="info-icon warm">📍</div><div><div class="info-lbl">Location</div><div class="info-val">Lisbon, Portugal</div></div></div>
+            <div class="info-item"><div class="info-icon blue">🔬</div><div><div class="info-lbl">Research Focus</div><div class="info-val">Hydraulic Transients &amp; Air–Water Flow</div></div></div>
+            <div class="info-item"><div class="info-icon warm">📧</div><div><div class="info-lbl">Email</div><div class="info-val" id="hero-email"></div></div></div>
+            <div class="info-item"><div class="info-icon blue">🏠</div><div><div class="info-lbl">Address</div><div class="info-val">Rua Pascoal de Melo 8, Lisboa</div></div></div>
           </div>
         </div>
       </div>
@@ -365,25 +360,16 @@ nav {
   </div>
 </div>
 
-<!-- GALLERY -->
-<div id="page-gallery" class="page">
-  <div class="page-wrap">
-    <div class="page-header"><div class="page-label">Moments</div><div class="page-title">Gallery</div><div class="page-divider"></div></div>
-    <div class="gallery-grid">
-      <div class="gitem" style="grid-column:span 2;aspect-ratio:4/3;"><img src="2.jpg" alt="Hohai University"><div class="gov">Hohai University Archives</div></div>
-      <div class="gitem" style="grid-column:span 2;aspect-ratio:4/3;"><img src="1.jpg" alt="PhD Graduation"><div class="gov">Ph.D. Graduation Celebration — Hohai University, December 2025</div></div>
-      <div class="gitem" style="grid-column:span 2;aspect-ratio:4/3;"><img src="3.jpg" alt="Water Conservancy"><div class="gov">College of Water Conservancy and Hydropower Engineering</div></div>
-      <div class="gitem" style="grid-column:span 3;aspect-ratio:4/3;"><img src="5.jpg" alt="IST Hydraulic Lab"><div class="gov">With Prof. Helena Ramos &amp; research team — IST Hydraulic Lab, Lisbon (Interreg HY4RES)</div></div>
-      <div class="gitem" style="grid-column:span 3;aspect-ratio:4/3;"><img src="4.jpg" alt="PhD Defense"><div class="gov">Ph.D. Defense — Hohai University (河海大学博士研究生答辩), December 2025</div></div>
-    </div>
-    <p class="gallery-caption">Ph.D. Graduation &amp; Research Life — Hohai University · IST Lisboa · Deltares</p>
-  </div>
-</div>
-
-<!-- ABOUT -->
+<!-- ════ ABOUT (bio + gallery) ════ -->
 <div id="page-about" class="page">
   <div class="page-wrap">
-    <div class="page-header"><div class="page-label">Introduction</div><div class="page-title">About Me</div><div class="page-divider"></div></div>
+    <div class="page-header">
+      <div class="page-label">Introduction</div>
+      <div class="page-title">About Me</div>
+      <div class="page-divider"></div>
+    </div>
+
+    <!-- bio -->
     <div class="about-grid">
       <div class="about-text">
         <p>I am a Postdoctoral Researcher in Civil Engineering at the Instituto Superior Técnico, University of Lisbon, working under the guidance of <a href="https://scholar.google.com/citations?user=9jTHk6oAAAAJ&hl=en" target="_blank">Prof. Helena M. Ramos</a>. I received my Ph.D. in Water Conservancy and Hydropower Engineering from Hohai University in December 2025, where I was advised by <a href="https://scholar.google.com/citations?user=wGtxm8YAAAAJ&hl=en" target="_blank">Prof. Ling Zhou</a>.</p>
@@ -397,13 +383,30 @@ nav {
         <div class="hi-card"><div class="hi-num">3</div><div class="hi-lab">Languages Spoken</div></div>
       </div>
     </div>
+
+    <!-- gallery -->
+    <div class="sub-heading" style="margin-top:3rem;">Gallery</div>
+    <div class="gallery-grid">
+      <div class="gitem" style="grid-column:span 2;aspect-ratio:4/3;"><img src="2.jpg" alt="Hohai University"><div class="gov">Hohai University Archives</div></div>
+      <div class="gitem" style="grid-column:span 2;aspect-ratio:4/3;"><img src="1.jpg" alt="PhD Graduation"><div class="gov">Ph.D. Graduation Celebration — Hohai University, December 2025</div></div>
+      <div class="gitem" style="grid-column:span 2;aspect-ratio:4/3;"><img src="3.jpg" alt="Water Conservancy College"><div class="gov">College of Water Conservancy and Hydropower Engineering</div></div>
+      <div class="gitem" style="grid-column:span 3;aspect-ratio:4/3;"><img src="5.jpg" alt="IST Hydraulic Lab"><div class="gov">With Prof. Helena Ramos &amp; research team — IST Hydraulic Lab, Lisbon (Interreg HY4RES)</div></div>
+      <div class="gitem" style="grid-column:span 3;aspect-ratio:4/3;"><img src="4.jpg" alt="PhD Defense"><div class="gov">Ph.D. Defense — Hohai University (河海大学博士研究生答辩), December 2025</div></div>
+    </div>
+    <p class="gallery-caption">Ph.D. Graduation &amp; Research Life — Hohai University · IST Lisboa · Deltares</p>
   </div>
 </div>
 
-<!-- EDUCATION -->
-<div id="page-education" class="page">
+<!-- ════ CV (Education + Skills + Awards) ════ -->
+<div id="page-cv" class="page">
   <div class="page-wrap">
-    <div class="page-header"><div class="page-label">Academic Background</div><div class="page-title">Education</div><div class="page-divider"></div></div>
+    <div class="page-header">
+      <div class="page-label">Curriculum Vitae</div>
+      <div class="page-title">CV</div>
+      <div class="page-divider"></div>
+    </div>
+
+    <div class="sub-heading">Education</div>
     <div class="timeline">
       <div class="tl-item">
         <div class="tl-date">February 2026 – Present</div>
@@ -436,58 +439,77 @@ nav {
         <div class="tl-detail">Class Ranking: 3rd out of 92 students</div>
       </div>
     </div>
+
+    <div class="sub-heading">Skills &amp; Competencies</div>
+    <div class="skills-grid">
+      <div class="sk-card"><div class="sk-title">💻 Programming</div><div class="sk-tags"><span class="sk-tag">Python</span><span class="sk-tag">MATLAB</span><span class="sk-tag">Fortran</span><span class="sk-tag w">Algorithm Dev</span></div></div>
+      <div class="sk-card"><div class="sk-title">🛠 Engineering Software</div><div class="sk-tags"><span class="sk-tag">ANSYS Fluent</span><span class="sk-tag">OpenFOAM</span><span class="sk-tag">AutoCAD</span><span class="sk-tag">Tecplot</span><span class="sk-tag w">Rhino</span></div></div>
+      <div class="sk-card"><div class="sk-title">🌊 Hydraulic Tools</div><div class="sk-tags"><span class="sk-tag">WANDA</span><span class="sk-tag">HAMMER</span><span class="sk-tag">SWMM</span><span class="sk-tag">Mike 11</span><span class="sk-tag w">HydraAI</span></div></div>
+      <div class="sk-card"><div class="sk-title">📊 Methods</div><div class="sk-tags"><span class="sk-tag">CFD</span><span class="sk-tag">Numerical Modeling</span><span class="sk-tag">Machine Learning</span><span class="sk-tag w">Data Analysis</span></div></div>
+      <div class="sk-card"><div class="sk-title">🌍 Languages</div><div class="sk-tags"><span class="sk-tag">Chinese (Native)</span><span class="sk-tag">English (Professional)</span><span class="sk-tag w">Portuguese (Conversational)</span></div></div>
+      <div class="sk-card"><div class="sk-title">📝 Peer Review</div><div class="sk-tags"><span class="sk-tag">Physics of Fluids</span><span class="sk-tag">Scientific Reports</span><span class="sk-tag w">J. Hydraul. Res.</span></div></div>
+    </div>
+
+    <div class="sub-heading">Awards &amp; Honors</div>
+    <div class="awards-list">
+      <div class="aw-item"><div class="aw-icon">🏆</div><div class="aw-text"><strong>First-Class Academic Scholarship</strong>, Hohai University (Awarded annually)</div><div class="aw-year">2020 – 2025</div></div>
+      <div class="aw-item"><div class="aw-icon">🥈</div><div class="aw-text"><strong>Second Prize</strong>, National Water Science Numerical Simulation Innovation Competition</div><div class="aw-year">2023</div></div>
+      <div class="aw-item"><div class="aw-icon">📄</div><div class="aw-text"><strong>Outstanding Paper &amp; Presentation Awards</strong>, Jiangsu Smart Water Academic Innovation Forum</div><div class="aw-year">2023</div></div>
+      <div class="aw-item"><div class="aw-icon">⭐</div><div class="aw-text"><strong>Outstanding Graduate Student</strong>, Hohai University</div><div class="aw-year">2022</div></div>
+      <div class="aw-item"><div class="aw-icon">🎤</div><div class="aw-text"><strong>Outstanding Presenter Award (Top 4)</strong>, 12th Graduate "Academic Pinnacle" Conference</div><div class="aw-year">2022</div></div>
+      <div class="aw-item"><div class="aw-icon">📜</div><div class="aw-text"><strong>Outstanding Graduation Thesis Award</strong>, Taiyuan University of Technology</div><div class="aw-year">2020</div></div>
+      <div class="aw-item"><div class="aw-icon">🎓</div><div class="aw-text"><strong>National Inspirational Scholarship</strong>, Shanxi Provincial Department of Education</div><div class="aw-year">2018</div></div>
+    </div>
   </div>
 </div>
 
-<!-- PUBLICATIONS -->
-<div id="page-publications" class="page">
+<!-- ════ RESEARCH (Publications + Experience) ════ -->
+<div id="page-research" class="page">
   <div class="page-wrap">
-    <div class="page-header"><div class="page-label">Research Output</div><div class="page-title">Publications</div><div class="page-divider"></div></div>
+    <div class="page-header">
+      <div class="page-label">Research Output</div>
+      <div class="page-title">Research</div>
+      <div class="page-divider"></div>
+    </div>
+
+    <!-- Publications -->
+    <div class="sub-heading">Publications</div>
     <div class="pub-cat">
       <h3 class="pub-cat-title">Journal Articles</h3>
       <ul class="pub-list">
-        <li class="pub-item"><strong>Feng, R.-L.</strong>, Zhou, L., Hu, Y., Li Y. (2026). <span class="pt">"Experimental Study of Upstream Air Venting Dynamics in Mixed Air–Water Flow Transients."</span> <span class="jn">Physics of Fluids</span> <span class="badge bsub">Submitted</span></li>
-        <li class="pub-item"><strong>Feng, R.-L.</strong>, Zhou, L., Hu, Y., Li Y. (2026). <span class="pt">"Experimental and Numerical Investigations of Free Surface and Mixed Flow Transitions in Urban Drainage Pipes under Complex Operating Conditions."</span> <span class="jn">Eng. Appl. Comput. Fluid Mech.</span> <span class="badge bsub">Under Review</span></li>
-        <li class="pub-item"><strong>Feng, R.-L.</strong>, Besharat, M., van Meerkerk, M., Moreno Rodenas, A., Tasca, E., Zhou, L., &amp; Ramos, H. M. (2025). <span class="pt"><a href="https://pubs.aip.org/aip/pof/article-abstract/37/12/123310/3374073/" target="_blank">"Impact of Air Valves on Air–water Dynamics During Pump Startup and Shutdown."</a></span> <span class="jn">Physics of Fluids</span>, Vol. 37(12). <span class="badge bq1">JCR Q1 · IF: 4.3</span></li>
-        <li class="pub-item"><strong>Feng, R.-L.</strong>, Zhou, L., Besharat, M., Xue, Z., Li, Y., Chen, Q., Hu, Y., &amp; Lu, Y. (2024). <span class="pt"><a href="https://www.tandfonline.com/doi/full/10.1080/19942060.2024.2428423" target="_blank">"Discreted Air Model for Large Scale Rapid Filling Process Contained Entrapped Air."</a></span> <span class="jn">Eng. Appl. Comput. Fluid Mech.</span>, Vol. 18(1). <span class="badge bq1">JCR Q1 · IF: 5.4</span></li>
-        <li class="pub-item">Zhou, L., <strong>Feng, R.-L.</strong>, Pan, T., Li, Y., Liu, D., &amp; Che, T. (2023). <span class="pt"><a href="https://ascelibrary.org/doi/abs/10.1061/JHEND8.HYENG-13468" target="_blank">"Coupled Second-Order GTS-MOC Scheme for Transient Pipe Flows with an Entrapped Air Pocket."</a></span> <span class="jn">J. Hydraul. Eng.</span>, Vol. 149(9). <span class="badge bq2">JCR Q2 · IF: 2.8</span></li>
-        <li class="pub-item">Zhou, L., Chen, Q., Li, Y., <strong>Feng, R.-L.</strong>, &amp; Xue, Z. (2024). <span class="pt"><a href="https://www.tandfonline.com/doi/full/10.1080/19942060.2024.2370931" target="_blank">"Godunov-type scheme for air-water transient pipe flow considering variable heat transfer and laboratorial validation."</a></span> <span class="jn">Eng. Appl. Comput. Fluid Mech.</span>, 18(1). <span class="badge bq1">JCR Q1 · IF: 5.4</span></li>
-        <li class="pub-item">Li, Y., Zhou, L., Li, Z., Che, T.-C., Lee, P. J., <strong>Feng, R.-L.</strong>, &amp; Chen, Q. (2024). <span class="pt"><a href="https://ascelibrary.org/doi/10.1061/JHEND8.HYENG-14029" target="_blank">"Modeling Interactions between Hydraulic Transients and Inline Air Pockets in Water Pipelines."</a></span> <span class="jn">J. Hydraul. Eng.</span>, 150(6). <span class="badge bq2">JCR Q2 · IF: 2.8</span></li>
-        <li class="pub-item">Hu, Y., Zhou, L., Li, Y., Lu, Y., <strong>Feng, R.-L.</strong>, Chen, Q., &amp; Xue, Z. (2024). <span class="pt"><a href="https://www.tandfonline.com/doi/full/10.1080/19942060.2024.2387047" target="_blank">"Numerical simulation of various flow regimes in water delivery systems."</a></span> <span class="jn">Eng. Appl. Comput. Fluid Mech.</span>, 18(1). <span class="badge bq1">JCR Q1 · IF: 5.4</span></li>
-        <li class="pub-item">Liu, Y., Lu, J., Chen, J., Xia, Y., Liu, D., Hu, Y., <strong>Feng, R.-L.</strong>, Liu, D., &amp; Zhou, L. (2023). <span class="pt"><a href="https://www.mdpi.com/2073-4441/15/15/2742" target="_blank">"Finite Volume Method for Transient Pipe Flow with an Air Cushion Surge Chamber."</a></span> <span class="jn">Water</span>, 15(15). <span class="badge bq3">JCR Q3 · IF: 3.0</span></li>
-        <li class="pub-item">Coelho, J. S. T., Perez-Sanchez, M., Coronado-Hernandez, O. E., Besharat, M., <strong>Feng, R.-L.</strong>, Tasca, E., Zhou, L., &amp; Ramos, H. M. (2024). <span class="pt"><a href="https://www.sciencedirect.com/science/article/pii/S2590123024013720" target="_blank">"Hydropneumatic storage methodology towards a new era of hybrid energy system's efficiency and flexibility."</a></span> <span class="jn">Results in Engineering</span>, 24.</li>
-        <li class="pub-item">Tao, Z., Zhou, L., Li, Y., Huang, Y., Lu, Y., Hu, Y., &amp; <strong>Feng, R.-L.</strong> (2025). <span class="pt"><a href="https://www.tandfonline.com/doi/full/10.1080/19942060.2025.2451171" target="_blank">"Transient response and analytical solution of burst phenomenon in long distance water pipeline."</a></span> <span class="jn">Eng. Appl. Comput. Fluid Mech.</span>, 19(1). <span class="badge bq1">JCR Q1 · IF: 5.4</span></li>
+        <li class="pub-item"><strong>Feng, R.-L.</strong>, Zhou, L., Hu, Y., Li Y. (2026). "Experimental Study of Upstream Air Venting Dynamics in Mixed Air–Water Flow Transients." <span class="jn">Physics of Fluids</span> <span class="badge bsub">Submitted</span></li>
+        <li class="pub-item"><strong>Feng, R.-L.</strong>, Zhou, L., Hu, Y., Li Y. (2026). "Experimental and Numerical Investigations of Free Surface and Mixed Flow Transitions in Urban Drainage Pipes under Complex Operating Conditions." <span class="jn">Eng. Appl. Comput. Fluid Mech.</span> <span class="badge bsub">Under Review</span></li>
+        <li class="pub-item"><strong>Feng, R.-L.</strong>, Besharat, M., van Meerkerk, M., Moreno Rodenas, A., Tasca, E., Zhou, L., &amp; Ramos, H. M. (2025). <a href="https://pubs.aip.org/aip/pof/article-abstract/37/12/123310/3374073/" target="_blank">"Impact of Air Valves on Air–water Dynamics During Pump Startup and Shutdown."</a> <span class="jn">Physics of Fluids</span>, Vol. 37(12). <span class="badge bq1">JCR Q1 · IF: 4.3</span></li>
+        <li class="pub-item"><strong>Feng, R.-L.</strong>, Zhou, L., Besharat, M., Xue, Z., Li, Y., Chen, Q., Hu, Y., &amp; Lu, Y. (2024). <a href="https://www.tandfonline.com/doi/full/10.1080/19942060.2024.2428423" target="_blank">"Discreted Air Model for Large Scale Rapid Filling Process Contained Entrapped Air."</a> <span class="jn">Eng. Appl. Comput. Fluid Mech.</span>, Vol. 18(1). <span class="badge bq1">JCR Q1 · IF: 5.4</span></li>
+        <li class="pub-item">Zhou, L., <strong>Feng, R.-L.</strong>, Pan, T., Li, Y., Liu, D., &amp; Che, T. (2023). <a href="https://ascelibrary.org/doi/abs/10.1061/JHEND8.HYENG-13468" target="_blank">"Coupled Second-Order GTS-MOC Scheme for Transient Pipe Flows with an Entrapped Air Pocket."</a> <span class="jn">J. Hydraul. Eng.</span>, Vol. 149(9). <span class="badge bq2">JCR Q2 · IF: 2.8</span></li>
+        <li class="pub-item">Zhou, L., Chen, Q., Li, Y., <strong>Feng, R.-L.</strong>, &amp; Xue, Z. (2024). <a href="https://www.tandfonline.com/doi/full/10.1080/19942060.2024.2370931" target="_blank">"Godunov-type scheme for air-water transient pipe flow considering variable heat transfer and laboratorial validation."</a> <span class="jn">Eng. Appl. Comput. Fluid Mech.</span>, 18(1). <span class="badge bq1">JCR Q1 · IF: 5.4</span></li>
+        <li class="pub-item">Li, Y., Zhou, L., Li, Z., Che, T.-C., Lee, P. J., <strong>Feng, R.-L.</strong>, &amp; Chen, Q. (2024). <a href="https://ascelibrary.org/doi/10.1061/JHEND8.HYENG-14029" target="_blank">"Modeling Interactions between Hydraulic Transients and Inline Air Pockets in Water Pipelines."</a> <span class="jn">J. Hydraul. Eng.</span>, 150(6). <span class="badge bq2">JCR Q2 · IF: 2.8</span></li>
+        <li class="pub-item">Hu, Y., Zhou, L., Li, Y., Lu, Y., <strong>Feng, R.-L.</strong>, Chen, Q., &amp; Xue, Z. (2024). <a href="https://www.tandfonline.com/doi/full/10.1080/19942060.2024.2387047" target="_blank">"Numerical simulation of various flow regimes in water delivery systems."</a> <span class="jn">Eng. Appl. Comput. Fluid Mech.</span>, 18(1). <span class="badge bq1">JCR Q1 · IF: 5.4</span></li>
+        <li class="pub-item">Liu, Y., Lu, J., Chen, J., Xia, Y., Liu, D., Hu, Y., <strong>Feng, R.-L.</strong>, Liu, D., &amp; Zhou, L. (2023). <a href="https://www.mdpi.com/2073-4441/15/15/2742" target="_blank">"Finite Volume Method for Transient Pipe Flow with an Air Cushion Surge Chamber."</a> <span class="jn">Water</span>, 15(15). <span class="badge bq3">JCR Q3 · IF: 3.0</span></li>
+        <li class="pub-item">Coelho, J. S. T., Perez-Sanchez, M., Coronado-Hernandez, O. E., Besharat, M., <strong>Feng, R.-L.</strong>, Tasca, E., Zhou, L., &amp; Ramos, H. M. (2024). <a href="https://www.sciencedirect.com/science/article/pii/S2590123024013720" target="_blank">"Hydropneumatic storage methodology towards a new era of hybrid energy system's efficiency and flexibility."</a> <span class="jn">Results in Engineering</span>, 24.</li>
+        <li class="pub-item">Tao, Z., Zhou, L., Li, Y., Huang, Y., Lu, Y., Hu, Y., &amp; <strong>Feng, R.-L.</strong> (2025). <a href="https://www.tandfonline.com/doi/full/10.1080/19942060.2025.2451171" target="_blank">"Transient response and analytical solution of burst phenomenon in long distance water pipeline."</a> <span class="jn">Eng. Appl. Comput. Fluid Mech.</span>, 19(1). <span class="badge bq1">JCR Q1 · IF: 5.4</span></li>
       </ul>
     </div>
     <div class="pub-cat">
       <h3 class="pub-cat-title">Conference Proceedings</h3>
       <ul class="pub-list">
-        <li class="pub-item"><strong>Feng, R.-L.</strong>, Besharat, M., Tasca, E., van Meerkerk, M., van Batenburg, T., Zhou, L., &amp; Ramos, H. M. (2026). <span class="pt"><a href="https://www.deltares.nl/en/events/pressure-surge-conference-2026" target="_blank">"Modelling transient air-water flow in undulating pipelines: a 1D numerical study of air valve performance."</a></span> <em>15th Intl. Conf. on Pressure Surges.</em> <span class="badge bacc">Accepted</span></li>
-        <li class="pub-item"><strong>Feng, R.-L.</strong>, Tasca, E., Besharat, M., van Meerkerk, M., van Batenburg, T., Zhou, L., &amp; Ramos, H. M. (2026). <span class="pt"><a href="https://www.deltares.nl/en/events/pressure-surge-conference-2026" target="_blank">"Air entrainment and removal characteristics in pressurized pipelines with local high points."</a></span> <em>15th Intl. Conf. on Pressure Surges.</em> <span class="badge bacc">Accepted</span></li>
-        <li class="pub-item"><strong>Feng, R.-L.</strong>, Tasca, E., van Meerkerk, M., Besharat, M., Zhou, L., Ramos, H. M., &amp; Karadžić, U. (2025). <span class="pt"><a href="https://www.iahr.org/library/infor?pid=34535" target="_blank">"Experimental Study on Dynamic Characteristics of Entrapped Air in Urban Drainage System."</a></span> <em>41st IAHR World Congress.</em></li>
-        <li class="pub-item"><strong>Feng, R.-L.</strong>, Zhou, L., Besharat, M., Lu, Y., Chen, Q., Hu, Y., &amp; Li, Y. (2024). <span class="pt"><a href="https://www.iahr.org/library/infor?pid=30446" target="_blank">"Air Characteristics During Rapid Filling of Long Distance Water Transmission Pipes."</a></span> <em>8th IAHR Europe Congress.</em></li>
-        <li class="pub-item">Lu, Y., Zhou, L., <strong>Feng, R.-L.</strong>, Xue, Z., Hu, Y., &amp; Chen, Q. (2024). <span class="pt"><a href="https://www.iahr.org/library/infor?pid=30446" target="_blank">"Improved Mixed Flow Model for Large-Scale Multi-Shaft Pipeline."</a></span> <em>8th IAHR Europe Congress.</em></li>
+        <li class="pub-item"><strong>Feng, R.-L.</strong>, Besharat, M., Tasca, E., van Meerkerk, M., van Batenburg, T., Zhou, L., &amp; Ramos, H. M. (2026). <a href="https://www.deltares.nl/en/events/pressure-surge-conference-2026" target="_blank">"Modelling transient air-water flow in undulating pipelines: a 1D numerical study of air valve performance."</a> <em>15th Intl. Conf. on Pressure Surges.</em> <span class="badge bacc">Accepted</span></li>
+        <li class="pub-item"><strong>Feng, R.-L.</strong>, Tasca, E., Besharat, M., van Meerkerk, M., van Batenburg, T., Zhou, L., &amp; Ramos, H. M. (2026). <a href="https://www.deltares.nl/en/events/pressure-surge-conference-2026" target="_blank">"Air entrainment and removal characteristics in pressurized pipelines with local high points."</a> <em>15th Intl. Conf. on Pressure Surges.</em> <span class="badge bacc">Accepted</span></li>
+        <li class="pub-item"><strong>Feng, R.-L.</strong>, Tasca, E., van Meerkerk, M., Besharat, M., Zhou, L., Ramos, H. M., &amp; Karadžić, U. (2025). <a href="https://www.iahr.org/library/infor?pid=34535" target="_blank">"Experimental Study on Dynamic Characteristics of Entrapped Air in Urban Drainage System."</a> <em>41st IAHR World Congress.</em></li>
+        <li class="pub-item"><strong>Feng, R.-L.</strong>, Zhou, L., Besharat, M., Lu, Y., Chen, Q., Hu, Y., &amp; Li, Y. (2024). <a href="https://www.iahr.org/library/infor?pid=30446" target="_blank">"Air Characteristics During Rapid Filling of Long Distance Water Transmission Pipes."</a> <em>8th IAHR Europe Congress.</em></li>
+        <li class="pub-item">Lu, Y., Zhou, L., <strong>Feng, R.-L.</strong>, Xue, Z., Hu, Y., &amp; Chen, Q. (2024). <a href="https://www.iahr.org/library/infor?pid=30446" target="_blank">"Improved Mixed Flow Model for Large-Scale Multi-Shaft Pipeline."</a> <em>8th IAHR Europe Congress.</em></li>
       </ul>
     </div>
     <div class="pub-cat">
-      <h3 class="pub-cat-title">Research Datasets</h3>
+      <h3 class="pub-cat-title">Research Datasets &amp; Intellectual Property</h3>
       <ul class="pub-list">
-        <li class="pub-item"><strong>Feng, R.-L.</strong>, Tasca, E., van Batenburg, T., van Meerkerk, M., &amp; Besharat, M. (2025). <span class="pt"><a href="https://zenodo.org/records/14679579" target="_blank">"Dynamic Behaviour of Air Pockets in Urban Drainage Systems (DAirUDS)."</a></span> <em>Zenodo</em>, Version 1.0 [Data set].</li>
-      </ul>
-    </div>
-    <div class="pub-cat">
-      <h3 class="pub-cat-title">Intellectual Property</h3>
-      <ul class="pub-list">
+        <li class="pub-item"><strong>Feng, R.-L.</strong>, Tasca, E., van Batenburg, T., van Meerkerk, M., &amp; Besharat, M. (2025). <a href="https://zenodo.org/records/14679579" target="_blank">"Dynamic Behaviour of Air Pockets in Urban Drainage Systems (DAirUDS)."</a> <em>Zenodo</em>, v1.0 [Data set].</li>
         <li class="pub-item"><strong>10 invention patents</strong> filed (7 granted, 3 under examination) &nbsp;·&nbsp; <strong>2 registered software copyrights</strong> for hydraulic simulation tools</li>
       </ul>
     </div>
-  </div>
-</div>
 
-<!-- EXPERIENCE -->
-<div id="page-experience" class="page">
-  <div class="page-wrap">
-    <div class="page-header"><div class="page-label">Professional Background</div><div class="page-title">Selected Projects</div><div class="page-divider"></div></div>
+    <!-- Selected Projects -->
+    <div class="sub-heading">Selected Projects</div>
     <div class="exp-grid">
       <div class="exp-card"><div class="exp-mk eng">🌊</div><div><div class="exp-role">Principal Investigator — Baihetan Hydropower Station Analysis</div><div class="exp-org">Three Gorges Jinsha River Yunchuan Hydropower Development Co., Ltd.</div><div class="exp-date">October 2023 – February 2026</div><div class="exp-desc">Developed an auxiliary decision-support system integrating 3D virtual reality and computer simulation for reservoir flood discharge and safe operation of generating units.</div></div></div>
       <div class="exp-card"><div class="exp-mk res">🔧</div><div><div class="exp-role">Research Subgroup Leader — HuanBeibu Gulf Water Resources Allocation</div><div class="exp-org">China Water Pearl River Planning Survey and Design Co., Ltd.</div><div class="exp-date">January 2021 – August 2023</div><div class="exp-desc">Directed flow calculations for a major water transfer project; investigated transient control techniques for trapped air in long tunnels and developed numerical models for combined pressurized and open channel flow.</div></div></div>
@@ -498,35 +520,24 @@ nav {
   </div>
 </div>
 
-<!-- SKILLS -->
-<div id="page-skills" class="page">
-  <div class="page-wrap">
-    <div class="page-header"><div class="page-label">Technical Expertise</div><div class="page-title">Skills &amp; Competencies</div><div class="page-divider"></div></div>
-    <div class="skills-grid">
-      <div class="sk-card"><div class="sk-title">💻 Programming</div><div class="sk-tags"><span class="sk-tag">Python</span><span class="sk-tag">MATLAB</span><span class="sk-tag">Fortran</span><span class="sk-tag w">Algorithm Dev</span></div></div>
-      <div class="sk-card"><div class="sk-title">🛠 Engineering Software</div><div class="sk-tags"><span class="sk-tag">ANSYS Fluent</span><span class="sk-tag">OpenFOAM</span><span class="sk-tag">AutoCAD</span><span class="sk-tag">Tecplot</span><span class="sk-tag w">Rhino</span></div></div>
-      <div class="sk-card"><div class="sk-title">🌊 Hydraulic Tools</div><div class="sk-tags"><span class="sk-tag">WANDA</span><span class="sk-tag">HAMMER</span><span class="sk-tag">SWMM</span><span class="sk-tag">Mike 11</span><span class="sk-tag w">HydraAI</span></div></div>
-      <div class="sk-card"><div class="sk-title">📊 Methods</div><div class="sk-tags"><span class="sk-tag">CFD</span><span class="sk-tag">Numerical Modeling</span><span class="sk-tag">Machine Learning</span><span class="sk-tag w">Data Analysis</span></div></div>
-      <div class="sk-card"><div class="sk-title">🌍 Languages</div><div class="sk-tags"><span class="sk-tag">Chinese (Native)</span><span class="sk-tag">English (Professional)</span><span class="sk-tag w">Portuguese (Conversational)</span></div></div>
-      <div class="sk-card"><div class="sk-title">📝 Peer Review</div><div class="sk-tags"><span class="sk-tag">Physics of Fluids</span><span class="sk-tag">Scientific Reports</span><span class="sk-tag w">J. Hydraul. Res.</span></div></div>
-    </div>
-  </div>
-</div>
-
-<!-- BEYOND -->
+<!-- ════ BEYOND ════ -->
 <div id="page-beyond" class="page">
   <div class="page-wrap">
-    <div class="page-header"><div class="page-label">Life Beyond the Lab</div><div class="page-title">Beyond Research</div><div class="page-divider"></div></div>
+    <div class="page-header">
+      <div class="page-label">Life Beyond the Lab</div>
+      <div class="page-title">Beyond Research</div>
+      <div class="page-divider"></div>
+    </div>
     <p class="beyond-intro">Research is what I do — <em>curiosity</em> is who I am. From the loess highlands of Shanxi where I was born, to the banks of the Tagus where I now call home, my life has been shaped by an endless desire to explore: new landscapes, new flavours, new ways of seeing the world. The same instinct that drives me to understand fluid dynamics pushes me to keep moving, keep tasting, keep wondering.</p>
 
-    <div class="b-sub">Roots &amp; Waypoints</div>
+    <div class="sub-heading">Roots &amp; Waypoints</div>
     <div class="roots-row">
       <div class="root-card xz"><span class="root-emoji">🏔️</span><div class="root-city">Xinzhou</div><div class="root-sub">Shanxi · Hometown</div><div class="root-desc">Born and raised in this quiet mountain city tucked among the loess highlands and ancient river valleys of northern Shanxi — the place where my love of handmade noodles, crisp highland air, and unhurried afternoons first took root.</div></div>
       <div class="root-card ty"><span class="root-emoji">🏛️</span><div class="root-city">Taiyuan</div><div class="root-sub">Shanxi · Undergraduate</div><div class="root-desc">Four formative years at Taiyuan University of Technology in the provincial capital — a city proud of its 2,500-year history, coal culture, and the serene Jinci Temple gardens. My first taste of independence, and of urban Shanxi cuisine at its finest.</div></div>
       <div class="root-card nj"><span class="root-emoji">🌸</span><div class="root-city">Nanjing</div><div class="root-sub">Jiangsu · PhD (Direct)</div><div class="root-desc">Five richly layered years pursuing my doctorate at Hohai University in this storied capital of six dynasties — where cherry blossoms drift along the old city walls each spring and the Yangtze rolls quietly past, indifferent to everything.</div></div>
     </div>
 
-    <div class="b-sub">Countries &amp; Cities Explored</div>
+    <div class="sub-heading">Countries &amp; Cities Explored</div>
     <div class="globe-wrap">
       <div class="chips">
         <span class="chip">🇰🇷 South Korea</span><span class="chip">🇹🇷 Türkiye</span><span class="chip">🇲🇪 Montenegro</span>
@@ -542,7 +553,7 @@ nav {
       <div class="pnote"><span class="pnote-icon">💛</span><span>Some of the most cherished miles have been covered side by side with my partner — including our adventures across the United States, where we have been discovering cities, landscapes, and hidden corners together, one journey at a time. The map is still mostly blank, and we wouldn't have it any other way.</span></div>
     </div>
 
-    <div class="b-sub">A Shanxi Kitchen</div>
+    <div class="sub-heading">A Shanxi Kitchen</div>
     <div class="noodle-grid">
       <div class="noodle-card"><div class="noodle-hd"><div class="noodle-ic">🍜</div><div><div class="noodle-nm">Dao Xiao Mian</div><div class="noodle-cn">刀削面 · Knife-cut noodles</div></div></div><div class="ntags"><span class="ntag">Hand-crafted</span><span class="ntag">Shanxi signature</span><span class="ntag">Rich broth</span><span class="ntag w">Homemade</span></div></div>
       <div class="noodle-card"><div class="noodle-hd"><div class="noodle-ic">🥢</div><div><div class="noodle-nm">Mao Er Duo</div><div class="noodle-cn">猫耳朵 · "Cat's ear" pasta</div></div></div><div class="ntags"><span class="ntag">Finger-shaped</span><span class="ntag">Stir-fried</span><span class="ntag">Versatile</span><span class="ntag w">Homemade</span></div></div>
@@ -552,35 +563,7 @@ nav {
   </div>
 </div>
 
-<!-- AWARDS -->
-<div id="page-awards" class="page">
-  <div class="page-wrap">
-    <div class="page-header"><div class="page-label">Recognition</div><div class="page-title">Awards &amp; Honors</div><div class="page-divider"></div></div>
-    <div class="awards-list">
-      <div class="aw-item"><div class="aw-icon">🏆</div><div class="aw-text"><strong>First-Class Academic Scholarship</strong>, Hohai University (Awarded annually)</div><div class="aw-year">2020 – 2025</div></div>
-      <div class="aw-item"><div class="aw-icon">🥈</div><div class="aw-text"><strong>Second Prize</strong>, National Water Science Numerical Simulation Innovation Competition</div><div class="aw-year">2023</div></div>
-      <div class="aw-item"><div class="aw-icon">📄</div><div class="aw-text"><strong>Outstanding Paper &amp; Presentation Awards</strong>, Jiangsu Smart Water Academic Innovation Forum</div><div class="aw-year">2023</div></div>
-      <div class="aw-item"><div class="aw-icon">⭐</div><div class="aw-text"><strong>Outstanding Graduate Student</strong>, Hohai University</div><div class="aw-year">2022</div></div>
-      <div class="aw-item"><div class="aw-icon">🎤</div><div class="aw-text"><strong>Outstanding Presenter Award (Top 4)</strong>, 12th Graduate "Academic Pinnacle" Conference</div><div class="aw-year">2022</div></div>
-      <div class="aw-item"><div class="aw-icon">📜</div><div class="aw-text"><strong>Outstanding Graduation Thesis Award</strong>, Taiyuan University of Technology</div><div class="aw-year">2020</div></div>
-      <div class="aw-item"><div class="aw-icon">🎓</div><div class="aw-text"><strong>National Inspirational Scholarship</strong>, Shanxi Provincial Department of Education</div><div class="aw-year">2018</div></div>
-    </div>
-  </div>
-</div>
-
-<!-- REFEREES -->
-<div id="page-referees" class="page">
-  <div class="page-wrap">
-    <div class="page-header"><div class="page-label">References</div><div class="page-title">Referees</div><div class="page-divider"></div></div>
-    <div class="ref-grid">
-      <div class="ref-card"><div class="ref-name"><a href="https://scholar.google.com/citations?user=wGtxm8YAAAAJ&hl=en" target="_blank">Prof. Ling Zhou</a></div><div class="ref-title">Professor</div><div class="ref-inst">College of Water Conservancy and Hydropower Engineering, Hohai University</div><div class="ref-email">📍 Nanjing, China · 📧 <span id="email-zhou"></span></div></div>
-      <div class="ref-card"><div class="ref-name"><a href="https://scholar.google.com/citations?user=9jTHk6oAAAAJ&hl=en" target="_blank">Prof. Helena M. Ramos</a></div><div class="ref-title">Full Professor</div><div class="ref-inst">Dept. of Civil Engineering, Instituto Superior Técnico, University of Lisbon</div><div class="ref-email">📍 Lisbon, Portugal · 📧 <span id="email-ramos"></span></div></div>
-      <div class="ref-card"><div class="ref-name"><a href="https://eps.leeds.ac.uk/civil-engineering/staff/11419/dr-mohsen-besharat" target="_blank">Dr. Mohsen Besharat</a></div><div class="ref-title">Associate Professor</div><div class="ref-inst">School of Civil Engineering, University of Leeds</div><div class="ref-email">📍 Leeds, UK · 📧 <span id="email-besharat"></span></div></div>
-    </div>
-  </div>
-</div>
-
-<!-- CONTACT -->
+<!-- ════ CONTACT (includes Referees) ════ -->
 <div id="page-contact" class="page">
   <div class="page-wrap">
     <div class="cw">
@@ -595,6 +578,13 @@ nav {
         <div class="cc"><div class="cc-icon">🏠</div><div class="cc-label">Homepage</div><div class="cc-val"><a href="https://mei767215541-rl.github.io/Ruilin-Feng/" target="_blank">Ruilin Feng's Homepage →</a></div></div>
       </div>
     </div>
+
+    <div class="sub-heading" style="margin-top:3rem;">Referees</div>
+    <div class="ref-grid">
+      <div class="ref-card"><div class="ref-name"><a href="https://scholar.google.com/citations?user=wGtxm8YAAAAJ&hl=en" target="_blank">Prof. Ling Zhou</a></div><div class="ref-role">Professor</div><div class="ref-inst">College of Water Conservancy and Hydropower Engineering, Hohai University</div><div class="ref-email">📍 Nanjing, China · 📧 <span id="email-zhou"></span></div></div>
+      <div class="ref-card"><div class="ref-name"><a href="https://scholar.google.com/citations?user=9jTHk6oAAAAJ&hl=en" target="_blank">Prof. Helena M. Ramos</a></div><div class="ref-role">Full Professor</div><div class="ref-inst">Dept. of Civil Engineering, Instituto Superior Técnico, University of Lisbon</div><div class="ref-email">📍 Lisbon, Portugal · 📧 <span id="email-ramos"></span></div></div>
+      <div class="ref-card"><div class="ref-name"><a href="https://eps.leeds.ac.uk/civil-engineering/staff/11419/dr-mohsen-besharat" target="_blank">Dr. Mohsen Besharat</a></div><div class="ref-role">Associate Professor</div><div class="ref-inst">School of Civil Engineering, University of Leeds</div><div class="ref-email">📍 Leeds, UK · 📧 <span id="email-besharat"></span></div></div>
+    </div>
   </div>
 </div>
 
@@ -608,7 +598,6 @@ function go(id) {
   document.getElementById('content-area').scrollTop = 0;
   document.querySelectorAll('[data-p]').forEach(a => a.classList.toggle('active', a.getAttribute('data-p') === id));
 }
-
 document.getElementById('hbg').addEventListener('click', function() {
   document.getElementById('drawer').classList.toggle('open');
 });
@@ -622,7 +611,10 @@ function cd() { document.getElementById('drawer').classList.remove('open'); }
   if (btn) btn.href = 'ma'+'ilto:'+full;
   var ce = document.getElementById('contact-email');
   if (ce) ce.innerHTML = '<a href="ma'+'ilto:'+full+'" style="color:#fff">'+full+'</a>';
-  function se(id, u, d) { var el = document.getElementById(id); if (el) el.innerHTML = '<a href="ma'+'ilto:'+u+'@'+d+'" style="color:var(--accent)">'+u+'@'+d+'</a>'; }
+  function se(id, u, d) {
+    var el = document.getElementById(id);
+    if (el) el.innerHTML = '<a href="ma'+'ilto:'+u+'@'+d+'" style="color:var(--accent)">'+u+'@'+d+'</a>';
+  }
   se('email-zhou','zlhhu','163.com');
   se('email-ramos','helena.ramos','tecnico.ulisboa.pt');
   se('email-besharat','M.Besharat','leeds.ac.uk');
