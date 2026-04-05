@@ -156,6 +156,51 @@ section { padding: 5rem 2rem; }
 .referee-email a { color: var(--accent); text-decoration: none; }
 .referee-email a:hover { text-decoration: underline; }
 
+/* ── Beyond Research ── */
+.beyond-intro { font-size: 1rem; color: var(--text); line-height: 1.9; max-width: 740px; margin-bottom: 3rem; }
+.beyond-intro em { color: var(--accent); font-style: normal; font-weight: 500; }
+
+.beyond-sub { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 700; color: var(--ink); margin-bottom: 1.3rem; display: flex; align-items: center; gap: 0.8rem; }
+.beyond-sub::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+.roots-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-bottom: 3rem; }
+.root-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 1.7rem; box-shadow: var(--shadow); position: relative; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+.root-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+.root-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 14px 14px 0 0; }
+.root-card.xinzhou::before { background: linear-gradient(90deg, #c4956a, #d4a574); }
+.root-card.taiyuan::before { background: linear-gradient(90deg, #2d5f8a, #5a8ab5); }
+.root-card.nanjing::before { background: linear-gradient(90deg, #8a4f7d, #b07aa0); }
+.root-emoji { font-size: 1.7rem; display: block; margin-bottom: 0.7rem; }
+.root-city { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 700; color: var(--ink); margin-bottom: 0.2rem; }
+.root-sub { font-size: 0.72rem; color: var(--warm); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.7rem; }
+.root-desc { font-size: 0.84rem; color: var(--text-muted); line-height: 1.7; }
+
+.globe-wrap { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 2rem 2.2rem; box-shadow: var(--shadow); margin-bottom: 3rem; }
+.country-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.8rem; }
+.chip { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.4rem 0.95rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500; border: 1px solid var(--border); background: var(--paper); color: var(--text); transition: all 0.25s; }
+.chip:hover { background: var(--accent-light); border-color: var(--accent); color: var(--accent); transform: scale(1.04); }
+.chip .flag { font-size: 1rem; }
+
+.travel-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+.travel-stat { text-align: center; padding: 1.2rem; background: var(--paper); border-radius: 10px; border: 1px solid var(--border); }
+.travel-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.1rem; font-weight: 700; color: var(--accent); line-height: 1; }
+.travel-stat-lab { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.35rem; letter-spacing: 0.04em; }
+
+.partner-note { background: var(--warm-light); border: 1px solid rgba(196,149,106,0.3); border-radius: 12px; padding: 1.2rem 1.5rem; font-size: 0.87rem; color: var(--text); line-height: 1.75; display: flex; align-items: flex-start; gap: 0.8rem; }
+.partner-note-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.15rem; }
+
+.noodle-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+.noodle-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem 1.8rem; box-shadow: var(--shadow); transition: transform 0.3s, box-shadow 0.3s; }
+.noodle-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+.noodle-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem; }
+.noodle-icon { width: 42px; height: 42px; border-radius: 10px; background: var(--warm-light); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0; }
+.noodle-name { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 700; color: var(--ink); }
+.noodle-cn { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.1rem; }
+.noodle-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.ntag { font-size: 0.72rem; padding: 0.2rem 0.6rem; border-radius: 4px; background: var(--accent-light); color: var(--accent); font-weight: 500; }
+.ntag.warm { background: var(--warm-light); color: #a07040; }
+
+/* ── Contact ── */
 .contact-section { background: var(--ink); color: #fff; }
 .contact-section .section-label { color: var(--warm); }
 .contact-section .section-title { color: #fff; }
@@ -190,6 +235,9 @@ noscript .fade-in, .no-js .fade-in { opacity: 1; transform: none; }
   .award-year { grid-column: 2; }
   .gallery-grid { grid-template-columns: 1fr; }
   .gallery-item:nth-child(1),.gallery-item:nth-child(2),.gallery-item:nth-child(3),.gallery-item:nth-child(4),.gallery-item:nth-child(5) { grid-column: span 1; aspect-ratio: 4/3; }
+  .roots-row { grid-template-columns: 1fr; }
+  .noodle-grid { grid-template-columns: 1fr; }
+  .travel-stats { grid-template-columns: repeat(3, 1fr); }
 }
 </style>
 </head>
@@ -204,6 +252,7 @@ noscript .fade-in, .no-js .fade-in { opacity: 1; transform: none; }
       <li><a href="#publications">Publications</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#beyond">Beyond</a></li>
       <li><a href="#awards">Awards</a></li>
       <li><a href="#referees">Referees</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -214,6 +263,9 @@ noscript .fade-in, .no-js .fade-in { opacity: 1; transform: none; }
   </div>
 </nav>
 
+<!-- ═══════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-text">
@@ -255,6 +307,9 @@ noscript .fade-in, .no-js .fade-in { opacity: 1; transform: none; }
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════
+     GALLERY
+════════════════════════════════════════ -->
 <section class="gallery-section" id="gallery">
   <div class="section-inner">
     <div class="section-header fade-in">
@@ -275,7 +330,6 @@ noscript .fade-in, .no-js .fade-in { opacity: 1; transform: none; }
         <img src="3.jpg" alt="College of Water Conservancy">
         <div class="gallery-overlay">College of Water Conservancy and Hydropower Engineering</div>
       </div>
-      <!-- 修正：5.jpg 是 IST 液压实验室（左图），4.jpg 是河海大学答辩现场（右图） -->
       <div class="gallery-item" style="grid-column:span 3;aspect-ratio:4/3;">
         <img src="5.jpg" alt="With Prof. Helena Ramos at IST Hydraulic Lab">
         <div class="gallery-overlay">With Prof. Helena Ramos &amp; research team — IST Hydraulic Lab, Lisbon (Interreg HY4RES)</div>
@@ -289,6 +343,9 @@ noscript .fade-in, .no-js .fade-in { opacity: 1; transform: none; }
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════
+     ABOUT
+════════════════════════════════════════ -->
 <section id="about">
   <div class="section-inner">
     <div class="section-header fade-in">
@@ -312,6 +369,9 @@ noscript .fade-in, .no-js .fade-in { opacity: 1; transform: none; }
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════
+     EDUCATION
+════════════════════════════════════════ -->
 <section id="education" style="background:var(--card-bg);">
   <div class="section-inner">
     <div class="section-header fade-in">
@@ -354,6 +414,9 @@ noscript .fade-in, .no-js .fade-in { opacity: 1; transform: none; }
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════
+     PUBLICATIONS
+════════════════════════════════════════ -->
 <section id="publications">
   <div class="section-inner">
     <div class="section-header fade-in">
@@ -402,6 +465,9 @@ noscript .fade-in, .no-js .fade-in { opacity: 1; transform: none; }
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════
+     EXPERIENCE
+════════════════════════════════════════ -->
 <section id="experience" style="background:var(--card-bg);">
   <div class="section-inner">
     <div class="section-header fade-in">
@@ -419,6 +485,9 @@ noscript .fade-in, .no-js .fade-in { opacity: 1; transform: none; }
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════
+     SKILLS
+════════════════════════════════════════ -->
 <section id="skills">
   <div class="section-inner">
     <div class="section-header fade-in">
@@ -437,7 +506,153 @@ noscript .fade-in, .no-js .fade-in { opacity: 1; transform: none; }
   </div>
 </section>
 
-<section id="awards" style="background:var(--card-bg);">
+<!-- ═══════════════════════════════════════
+     BEYOND RESEARCH  ← NEW SECTION
+════════════════════════════════════════ -->
+<section id="beyond" style="background:var(--card-bg);">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <div class="section-label">Life Beyond the Lab</div>
+      <h2 class="section-title">Beyond Research</h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <p class="beyond-intro fade-in">
+      Research is what I do — <em>curiosity</em> is who I am. From the loess highlands of Shanxi where I was born, to the banks of the Tagus where I now call home, my life has been shaped by an endless desire to explore: new landscapes, new flavours, new ways of seeing the world. The same instinct that drives me to understand fluid dynamics pushes me to keep moving, keep tasting, keep wondering.
+    </p>
+
+    <!-- ── Roots ── -->
+    <h3 class="beyond-sub fade-in">Roots &amp; Waypoints</h3>
+    <div class="roots-row fade-in">
+      <div class="root-card xinzhou">
+        <span class="root-emoji">🏔️</span>
+        <div class="root-city">Xinzhou</div>
+        <div class="root-sub">Shanxi · Hometown</div>
+        <div class="root-desc">Born and raised in this quiet mountain city tucked among the loess highlands and ancient river valleys of northern Shanxi — the place where my love of handmade noodles, crisp highland air, and unhurried afternoons first took root.</div>
+      </div>
+      <div class="root-card taiyuan">
+        <span class="root-emoji">🏛️</span>
+        <div class="root-city">Taiyuan</div>
+        <div class="root-sub">Shanxi · Undergraduate</div>
+        <div class="root-desc">Four formative years at Taiyuan University of Technology in the provincial capital — a city proud of its 2,500-year history, coal culture, and the serene Jinci Temple gardens. My first taste of independence, and of urban Shanxi cuisine at its finest.</div>
+      </div>
+      <div class="root-card nanjing">
+        <span class="root-emoji">🌸</span>
+        <div class="root-city">Nanjing</div>
+        <div class="root-sub">Jiangsu · PhD (Direct)</div>
+        <div class="root-desc">Five richly layered years pursuing my doctorate at Hohai University in this storied capital of six dynasties — where cherry blossoms drift along the old city walls each spring and the Yangtze rolls quietly past, indifferent to everything.</div>
+      </div>
+    </div>
+
+    <!-- ── Travel ── -->
+    <h3 class="beyond-sub fade-in">Countries &amp; Cities Explored</h3>
+    <div class="globe-wrap fade-in">
+      <div class="country-chips">
+        <span class="chip"><span class="flag">🇰🇷</span> South Korea</span>
+        <span class="chip"><span class="flag">🇹🇷</span> Türkiye</span>
+        <span class="chip"><span class="flag">🇲🇪</span> Montenegro</span>
+        <span class="chip"><span class="flag">🇩🇪</span> Germany</span>
+        <span class="chip"><span class="flag">🇨🇭</span> Switzerland</span>
+        <span class="chip"><span class="flag">🇦🇹</span> Austria</span>
+        <span class="chip"><span class="flag">🇵🇹</span> Portugal</span>
+        <span class="chip"><span class="flag">🇪🇸</span> Spain</span>
+        <span class="chip"><span class="flag">🇫🇷</span> France</span>
+        <span class="chip"><span class="flag">🇺🇸</span> United States</span>
+        <span class="chip"><span class="flag">🇳🇱</span> Netherlands</span>
+        <span class="chip"><span class="flag">🇸🇬</span> Singapore</span>
+      </div>
+      <div class="travel-stats">
+        <div class="travel-stat">
+          <div class="travel-stat-num">12</div>
+          <div class="travel-stat-lab">Countries visited</div>
+        </div>
+        <div class="travel-stat">
+          <div class="travel-stat-num">4</div>
+          <div class="travel-stat-lab">Continents explored</div>
+        </div>
+        <div class="travel-stat">
+          <div class="travel-stat-num">∞</div>
+          <div class="travel-stat-lab">Still on the list</div>
+        </div>
+      </div>
+      <div class="partner-note">
+        <span class="partner-note-icon">💛</span>
+        <span>Some of the most cherished miles have been covered side by side with my partner — including our adventures across the United States, where we have been discovering cities, landscapes, and hidden corners together, one journey at a time. The map is still mostly blank, and we wouldn't have it any other way.</span>
+      </div>
+    </div>
+
+    <!-- ── Noodles ── -->
+    <h3 class="beyond-sub fade-in">A Shanxi Kitchen</h3>
+    <div class="noodle-grid fade-in">
+      <div class="noodle-card">
+        <div class="noodle-header">
+          <div class="noodle-icon">🍜</div>
+          <div>
+            <div class="noodle-name">Dao Xiao Mian</div>
+            <div class="noodle-cn">刀削面 · Knife-cut noodles</div>
+          </div>
+        </div>
+        <div class="noodle-tags">
+          <span class="ntag">Hand-crafted</span>
+          <span class="ntag">Shanxi signature</span>
+          <span class="ntag">Rich broth</span>
+          <span class="ntag warm">Homemade</span>
+        </div>
+      </div>
+      <div class="noodle-card">
+        <div class="noodle-header">
+          <div class="noodle-icon">🥢</div>
+          <div>
+            <div class="noodle-name">Mao Er Duo</div>
+            <div class="noodle-cn">猫耳朵 · "Cat's ear" pasta</div>
+          </div>
+        </div>
+        <div class="noodle-tags">
+          <span class="ntag">Finger-shaped</span>
+          <span class="ntag">Stir-fried</span>
+          <span class="ntag">Versatile</span>
+          <span class="ntag warm">Homemade</span>
+        </div>
+      </div>
+      <div class="noodle-card">
+        <div class="noodle-header">
+          <div class="noodle-icon">🍲</div>
+          <div>
+            <div class="noodle-name">He Luo</div>
+            <div class="noodle-cn">河捞 · Pressed noodles</div>
+          </div>
+        </div>
+        <div class="noodle-tags">
+          <span class="ntag">Press-extruded</span>
+          <span class="ntag">Chewy texture</span>
+          <span class="ntag">Vinegar-paired</span>
+          <span class="ntag warm">Homemade</span>
+        </div>
+      </div>
+      <div class="noodle-card">
+        <div class="noodle-header">
+          <div class="noodle-icon">🌾</div>
+          <div>
+            <div class="noodle-name">&amp; Many More…</div>
+            <div class="noodle-cn">拨鱼 · 剔尖 · 莜面栲栳栳</div>
+          </div>
+        </div>
+        <div class="noodle-tags">
+          <span class="ntag">Bo Yu</span>
+          <span class="ntag">Ti Jian</span>
+          <span class="ntag">Oat flour rolls</span>
+          <span class="ntag warm">Shanxi tradition</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     AWARDS
+════════════════════════════════════════ -->
+<section id="awards">
   <div class="section-inner">
     <div class="section-header fade-in">
       <div class="section-label">Recognition</div>
@@ -456,7 +671,10 @@ noscript .fade-in, .no-js .fade-in { opacity: 1; transform: none; }
   </div>
 </section>
 
-<section id="referees">
+<!-- ═══════════════════════════════════════
+     REFEREES
+════════════════════════════════════════ -->
+<section id="referees" style="background:var(--card-bg);">
   <div class="section-inner">
     <div class="section-header fade-in">
       <div class="section-label">References</div>
@@ -486,6 +704,9 @@ noscript .fade-in, .no-js .fade-in { opacity: 1; transform: none; }
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════
+     CONTACT
+════════════════════════════════════════ -->
 <section id="contact" class="contact-section">
   <div class="section-inner">
     <div class="section-header fade-in">
