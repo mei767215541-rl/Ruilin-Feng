@@ -244,6 +244,23 @@ nav {
 .ntag { font-size: 0.71rem; padding: 0.18rem 0.55rem; border-radius: 4px; background: var(--accent-light); color: var(--accent); font-weight: 500; }
 .ntag.w { background: var(--warm-light); color: #a07040; }
 
+/* ── ROBIN (cat section) ── */
+.robin-wrap { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; box-shadow: var(--shadow); overflow: hidden; }
+.robin-story { font-size: 0.92rem; color: var(--text); line-height: 1.85; margin-bottom: 1.8rem; }
+.robin-story strong { color: var(--ink); }
+.robin-story em { color: var(--accent); font-style: normal; font-weight: 500; }
+.robin-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.9rem; }
+.robin-photo { border-radius: 12px; overflow: hidden; aspect-ratio: 3/4; position: relative; box-shadow: var(--shadow); border: 1px solid var(--border); transition: transform 0.3s, box-shadow 0.3s; }
+.robin-photo:hover { transform: translateY(-4px) scale(1.02); box-shadow: var(--shadow-hover); }
+.robin-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+.robin-photo:hover img { transform: scale(1.05); }
+.robin-photo .rlab { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(26,26,46,0.72)); color: #fff; padding: 2rem 0.8rem 0.65rem; font-size: 0.72rem; font-style: italic; text-align: center; opacity: 0; transition: opacity 0.3s; }
+.robin-photo:hover .rlab { opacity: 1; }
+.robin-stats { display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap; }
+.robin-stat { background: var(--warm-light); border: 1px solid rgba(196,149,106,0.25); border-radius: 10px; padding: 0.9rem 1.3rem; text-align: center; flex: 1; min-width: 120px; }
+.robin-stat-n { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 700; color: var(--warm); line-height: 1; }
+.robin-stat-l { font-size: 0.7rem; color: var(--text-muted); margin-top: 0.3rem; }
+
 /* ── CONTACT (includes Referees) ── */
 .cw { background: var(--ink); border-radius: 16px; padding: 2.8rem; }
 .cw .page-label { color: var(--warm); }
@@ -278,6 +295,7 @@ nav {
   .hero-card { max-width: 100%; }
   .about-grid { grid-template-columns: 1fr; }
   .quick-nav { grid-template-columns: repeat(3, 1fr); }
+  .robin-gallery { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 600px) {
   .roots-row { grid-template-columns: 1fr; }
@@ -291,6 +309,8 @@ nav {
   .quick-nav { grid-template-columns: repeat(2, 1fr); }
   .page-wrap { padding: 2rem 1.2rem 4rem; }
   .cw { padding: 2rem 1.4rem; }
+  .robin-gallery { grid-template-columns: repeat(2, 1fr); }
+  .robin-stats { flex-direction: column; }
 }
 </style>
 </head>
@@ -551,6 +571,28 @@ nav {
         <div class="tstat"><div class="tstat-n">∞</div><div class="tstat-l">Still on the list</div></div>
       </div>
       <div class="pnote"><span class="pnote-icon">💛</span><span>Some of the most cherished miles have been covered side by side with my partner — including our adventures across the United States, where we have been discovering cities, landscapes, and hidden corners together, one journey at a time. The map is still mostly blank, and we wouldn't have it any other way.</span></div>
+    </div>
+
+    <!-- ── ROBIN THE CAT ── -->
+    <div class="sub-heading">Furry Companion</div>
+    <div class="robin-wrap">
+      <p class="robin-story">
+        Meet <strong>Robin</strong> — the tiny tabby who walked into our lives in early December 2025 and immediately decided she was in charge. We brought her home weighing barely <em>5 lbs</em>, a scrawny little thing with enormous eyes and an even bigger attitude. She was shy for about forty-five minutes. After that, she claimed the couch, the rug, the desk behind the monitor, and — somehow — the exact center of every important conversation. She has strong opinions about dinnertime, zero respect for closed doors, and an unshakeable belief that every cardboard box in the apartment was delivered specifically for her.
+      </p>
+      <p class="robin-story">
+        Fast-forward a few months and Robin is now a proud <em>9 lbs</em> of pure confidence. Watching her grow from that timid shelter kitten into the bold, curious, slightly dramatic cat she is today has been one of the most rewarding things outside the lab. She keeps us honest, keeps us laughing, and — on the long nights of paper revisions and deadline crunches — keeps our laps warm. Honestly, I don't think either of us can remember what the apartment felt like before she got here.
+      </p>
+      <div class="robin-gallery">
+        <div class="robin-photo"><img src="robin1.jpeg" alt="Robin perched on the couch"><div class="rlab">Queen of the couch armrest</div></div>
+        <div class="robin-photo"><img src="robin2.jpeg" alt="Robin lounging on the rug"><div class="rlab">Rug sprawl — her favorite pastime</div></div>
+        <div class="robin-photo"><img src="robin3.jpeg" alt="Robin sitting pretty"><div class="rlab">Posing like she owns the place (she does)</div></div>
+        <div class="robin-photo"><img src="robin4.jpeg" alt="Robin behind the desk"><div class="rlab">Supervising from behind the monitor</div></div>
+      </div>
+      <div class="robin-stats">
+        <div class="robin-stat"><div class="robin-stat-n">5 → 9</div><div class="robin-stat-l">lbs gained since adoption</div></div>
+        <div class="robin-stat"><div class="robin-stat-n">Dec '25</div><div class="robin-stat-l">Gotcha day</div></div>
+        <div class="robin-stat"><div class="robin-stat-n">100%</div><div class="robin-stat-l">Boss of the household</div></div>
+      </div>
     </div>
 
     <div class="sub-heading">A Shanxi Kitchen</div>
